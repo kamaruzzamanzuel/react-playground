@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import MuiDataGrid from './MuiDataGrid'
+import MuiXDataGrid from './grid-examples/mui-x-data-grid/Index'
+import KendoGrid from './grid-examples/kendo-grid/Index'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +18,8 @@ function App() {
         </button>
       </div>
 
-      <MuiDataGrid />
+      {/* <MuiXDataGrid /> */}
+      <KendoGrid/>
     </>
   )
 }
