@@ -31,6 +31,9 @@
     "@progress/kendo-react-treeview": "^5.15.0",
     "@progress/kendo-svg-icons": "^1.8.0",
     "@progress/kendo-theme-default": "^6.6.0",
+    "ag-grid-community": "^30.0.5",
+    "ag-grid-enterprise": "^30.0.5",
+    "ag-grid-react": "^30.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

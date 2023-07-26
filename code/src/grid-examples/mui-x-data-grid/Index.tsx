@@ -2,7 +2,7 @@ import Basic from './Basic';
 import CustomHeaderFilter from './CustomHeaderFilter';
 import ExpandableTreeData from './ExpandableTreeData';
 
-const Index = () => {
+const MuiXDataGrid = () => {
   return (
     <div className='bg-white p-10 w-full'>
       <Basic />
@@ -12,4 +12,4 @@ const Index = () => {
   );
 }
 
-export default Index;
+export default MuiXDataGrid;

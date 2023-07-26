@@ -22,7 +22,7 @@ const initialDataState: State = {
   skip: 0,
 };
 
-const Index = () => {
+const KendoGrid = () => {
   const [dataState, setDataState] = React.useState<State>(initialDataState);
 
   const dataStateChange = (e: GridDataStateChangeEvent) => {
@@ -162,4 +162,4 @@ const Index = () => {
   );
 }
 
-export default Index
+export default KendoGrid

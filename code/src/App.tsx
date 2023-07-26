@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MuiXDataGrid from './grid-examples/mui-x-data-grid/Index'
 import KendoGrid from './grid-examples/kendo-grid/Index'
+import AgGrid from './grid-examples/ag-grid/Index'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,8 @@ function App() {
       </div>
 
       {/* <MuiXDataGrid /> */}
-      <KendoGrid/>
+      {/* <KendoGrid/> */}
+      <AgGrid />
     </>
   )
 }
