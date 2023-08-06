@@ -18,6 +18,20 @@ import { getData } from './Data';
 import { IOlympicData, IOlympicWinnerData } from './Interfaces';
 import remoteData from './RemoteData.json';
 import { CELL_DATA_TYPE, FILTER_TYPE } from './Emuns';
+import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+// import { ColumnsToolPanelModule } from '@ag-grid-enterprise/column-tool-panel';
+// import { FiltersToolPanelModule } from '@ag-grid-enterprise/filter-tool-panel';
+import { MenuModule } from '@ag-grid-enterprise/menu';
+// import { StatusBarModule } from '@ag-grid-enterprise/status-bar';
+import { ModuleRegistry } from '@ag-grid-community/core';
+// Register the required feature modules with the Grid
+ModuleRegistry.registerModules([
+  ClientSideRowModelModule,
+  // ColumnsToolPanelModule,
+  // FiltersToolPanelModule,
+  // StatusBarModule,
+  MenuModule
+]);
 
 interface IOlympicDataTypes extends IOlympicData {
   dateObject: Date;
@@ -145,8 +159,8 @@ const AgGrid = () => {
           <AgGridReact
             className='remote-data'
             rowData={rowRemoteData}
-            defaultColDef={defaultColDef}
             columnDefs={remoteDataColumnDefs}
+            defaultColDef={defaultColDef}
             dataTypeDefinitions={dataTypeDefinitions}
             onGridReady={onGridReady}
           />
