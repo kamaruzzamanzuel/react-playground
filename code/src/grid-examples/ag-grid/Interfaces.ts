@@ -11,6 +11,15 @@ export interface IOlympicData {
   total: number;
 }
 
+export interface IOlympicDataAlt extends IOlympicData {
+  countryObject:{
+    name: string;
+  };
+  dateObject: Date;
+  hasGold: boolean;
+  hasGoldLabel: string;
+}
+
 export interface IOlympicWinnerData {
   name: string;
   person: {
