@@ -140,14 +140,11 @@ const AgGrid = () => {
   const [remoteDataColumnDefs, setRemoteDataColumnDefs] = useState<ColDef<IOlympicDataTypes>[]>([
     {
       field: 'athlete',
-      filter: "agSetColumnFilter",
+      // filter: "agSetColumnFilter",
+      // filter: "",
       filterParams: {
-        values: ["Aleksey Nemov", "Alicia Coutts", "Michael Phelps"],
-        // keyCreator: ["Aleksey Nemov", "Michael Phelps"],
-        // valueFormatter: ["AN", "MP"],
-        // comparator: countryComparator,
+        values: ["Aleksey Nemov", "Alicia Coutts", "Michael Phelps"]
       },
-
     },
     { field: 'age', minWidth: 100 },
     {
@@ -160,6 +157,7 @@ const AgGrid = () => {
         // return props.data?.hasGold ? "YES" : "NO";
         return { value: props.data?.hasGold };
       },
+      // valueFormatter: (props) => {},
       cellRenderer: (props: ICellRendererParams<IOlympicDataTypes, boolean>) => {
         // console.log({ v: props.value });
 
@@ -194,15 +192,15 @@ const AgGrid = () => {
         valueFormatter: getFilterValue,
       }
     },
-    // {
-    //   field: "hasGoldLabel",
-    //   minWidth: 100,
-    //   headerName: 'Gold',
-    //   filterValueGetter: (props: ValueGetterParams<IOlympicDataTypes, boolean>) => {
-    //     // console.log({ props });
-    //     return props.data?.hasGold ? "yes" : "no";
-    //   },
-    // },
+    {
+      field: "hasGoldLabel",
+      minWidth: 100,
+      headerName: 'Gold Label',
+      filterValueGetter: (props: ValueGetterParams<IOlympicDataTypes, boolean>) => {
+        // console.log({ props });
+        return props.data?.hasGold ? "Yes" : "No";
+      },
+    },
     { field: 'dateObject', headerName: 'Date' },
     { field: 'date', headerName: 'Date (String)' },
     { field: 'countryObject', headerName: 'Country' }
@@ -238,8 +236,8 @@ const AgGrid = () => {
             ref={gridRef}
             className='remote-data'
             rowData={rowRemoteData}
-            columnDefs={remoteDataColumnDefs}
             defaultColDef={defaultColDef}
+            columnDefs={remoteDataColumnDefs}
             dataTypeDefinitions={dataTypeDefinitions}
             onGridReady={onGridReady}
             onFilterChanged={x => console.log({ x, filterModel: gridRef.current!.api.getFilterModel() })}
