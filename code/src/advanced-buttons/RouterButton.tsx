@@ -1,28 +1,39 @@
 import { ReactNode, ComponentProps, HTMLAttributeAnchorTarget } from 'react';
 import { Button, ButtonOwnProps, ButtonProps, ButtonTypeMap, ExtendButtonBase } from '@mui/material';
 import { Link } from 'react-router-dom';
+import defaultCss from "./RouterButton.module.scss";
+import classnames from "classnames";
 
 type TypeProps = {
   children: ReactNode;
+  className?: string;
   to?: string;
   target?: HTMLAttributeAnchorTarget;
-} & Omit<ButtonProps, "children" | "to" | "href" | "target">;
+} & Omit<ButtonProps, "children" | "to" | "href" | "target" | "className">;
 
 const RouterButton = ({
   children,
   to,
   target = "_self",
+  className,
   ...rest
 }: TypeProps) => {
+  // console.log({ aaa, bbb });
+
   const defaultButtonProps: ButtonOwnProps = {
     variant: "contained",
   };
+
+  const additionButtonProps = {
+    ...defaultButtonProps,
+    className: classnames(defaultCss.buttonRoot, className, "aa", "aa")
+  }
 
   if (to != null) {
     if (target === "_self") {
       return <LinkTagButton
         to={to}
-        {...defaultButtonProps}
+        {...additionButtonProps}
         {...rest as ExtendButtonBase<ButtonTypeMap<{}, typeof Link>>}
       >
         {children}
@@ -31,7 +42,7 @@ const RouterButton = ({
       return <ATagButton
         to={to}
         target={target}
-        {...defaultButtonProps}
+        {...additionButtonProps}
         {...rest as ExtendButtonBase<ButtonTypeMap<{}, "a">>}
       >
         {children}
@@ -39,7 +50,7 @@ const RouterButton = ({
     }
   } else {
     return <Button
-      {...defaultButtonProps}
+      {...additionButtonProps}
       {...rest}
     >
       {children}

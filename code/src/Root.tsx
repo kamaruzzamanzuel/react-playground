@@ -26,9 +26,6 @@ const Root = () => {
         <RouterButton to='/kendo-grid'>
           Kendo Grid
         </RouterButton>
-        <Button >
-          Home 1
-        </Button>
         <Button component="a" href="/">
           Home 2
         </Button>
