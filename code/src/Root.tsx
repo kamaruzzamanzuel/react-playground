@@ -20,15 +20,19 @@ const Root = () => {
         <RouterButton to='/ag-grid' variant='outlined'>
           AG Grid
         </RouterButton>
-        <RouterButton to='/mui-x-grid' target="_blank" className='hover:text-black hover:!bg-white'>
+        {/* <RouterButton to='/mui-x-grid' target="_blank" className='hover:text-black hover:!bg-white'> */}
+        <RouterButton to='/mui-x-grid' target="_blank" >
           MUI X Grid
         </RouterButton>
         <RouterButton to='/kendo-grid'>
           Kendo Grid
         </RouterButton>
-        <Button component="a" href="/">
+        {/* <Button component="a" href="/">
           Home 2
-        </Button>
+        </Button> */}
+        <RouterButton to='/'>
+          Home 2
+        </RouterButton>
         <RouterButton onClick={() => alert("test")}>
           Home 3
         </RouterButton>
