@@ -26,7 +26,7 @@ const RouterButton = ({
 
   const additionButtonProps = {
     ...defaultButtonProps,
-    className: classnames(defaultCss.buttonRoot, className, "aa", "aa")
+    className: classnames(defaultCss.buttonRoot, className, "!bg-primary !text-red hover:text-black hover:!bg-white")
   }
 
   if (to != null) {

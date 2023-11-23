@@ -12,6 +12,7 @@ import KendoGrid from './grid-examples/kendo-grid/Index'
 import AgGrid from './grid-examples/ag-grid/Index'
 import { LicenseManager } from "ag-grid-enterprise";
 import Root from './Root';
+import ResponsiveRowColumnGrid from './grid-system/ResponsiveRowColumnGrid';
 LicenseManager.setLicenseKey("KEY HERE");
 
 const router = createBrowserRouter([
@@ -21,15 +22,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/ag-grid",
-        element: <AgGrid />,
+        element: <AgGrid />
       },
       {
         path: "/mui-x-grid",
-        element: <MuiXDataGrid />,
+        element: <MuiXDataGrid />
       },
       {
         path: "/kendo-grid",
-        element: <KendoGrid />,
+        element: <KendoGrid />
+      },
+      {
+        path: "/responsive-row-column-grid",
+        element: <ResponsiveRowColumnGrid />
       }
     ]
   }

@@ -3,13 +3,39 @@
 @tailwind utilities;
 
 :root {
+  --color-primary: #5fbb47;
+  --color-blue: #1a758f;
+  --agency-theme-color-primary: var(--color-green);
+  --agency-theme-color-secondary: var(--color-blue);
+  --agency-theme-color-secondary-alt: #5a9eb1;
+  --agency-theme-color-secondary-light: #e7f1f4;
+  --agency-theme-color-link: var(--agency-theme-color-primary);
+  --color-progress-bar-background: var(--color-green);
+  --color-progress-bar-progress: var(--color-blue);
+  --color-warning: #ff9700;
+  --color-danger: #d32f2f;
+  --color-danger-light: #e86b6b;
+  --color-danger-deep-light: #f55953;
+  --color-orange: #e99009;
+  --color-btn-gray: #bdbdbd;
+  --color-btn-gray-light: #dddddd;
+  --color-grey: #949ea7;
+  --color-light-grey: #404f5d;
+  --color-card-gray: #29333c;
+  --color-text-black: #495057;
+  --default-font-family: "Montserrat", sans-serif;
+  --window-height: 100px;
+  --toastify-color-warning: #e9a800 !important;
+  --color-success-override: var(--agency-theme-color-primary);
+  --color-danger-override: #f44336;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
