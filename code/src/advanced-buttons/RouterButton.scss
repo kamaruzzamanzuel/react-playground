@@ -1,10 +1,23 @@
-// body {
-//   font-family: "Montserrat", sans-serif;
-// }
 
 .button-root.MuiButton-root {
-  display: inline-block;
   font-size: 16px;
-  line-height: 30px;
-  padding: 9px 29px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 14px 29px 13px;
+  text-transform: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .button-root.MuiButton-root {
+    line-height: 19px;
+    padding: 10px 20px 9px;
+  }
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
 }

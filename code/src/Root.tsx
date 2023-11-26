@@ -24,13 +24,13 @@ const Root = () => {
         <RouterButton to='/mui-x-grid' target="_blank" >
           MUI X Grid
         </RouterButton>
-        <RouterButton to='/kendo-grid'>
+        <RouterButton to='/kendo-grid' className='btn-primary'>
           Kendo Grid
         </RouterButton>
         {/* <Button component="a" href="/">
           Home 2
         </Button> */}
-        <RouterButton to='/'>
+        <RouterButton to='/' className='btn-secondary'>
           Home 2
         </RouterButton>
         <RouterButton onClick={() => alert("test")}>
