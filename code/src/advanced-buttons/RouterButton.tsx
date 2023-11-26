@@ -1,7 +1,8 @@
 import { ReactNode, ComponentProps, HTMLAttributeAnchorTarget } from 'react';
 import { Button, ButtonOwnProps, ButtonProps, ButtonTypeMap, ExtendButtonBase } from '@mui/material';
 import { Link } from 'react-router-dom';
-import defaultCss from "./RouterButton.module.scss";
+// import defaultCss from "./RouterButton.scss";
+import "./RouterButton.scss";
 import classnames from "classnames";
 
 type TypeProps = {
@@ -26,7 +27,8 @@ const RouterButton = ({
 
   const additionButtonProps = {
     ...defaultButtonProps,
-    className: classnames(defaultCss.buttonRoot, className, "!bg-primary !text-red hover:text-black hover:!bg-white")
+    // className: classnames(defaultCss.buttonRoot, className, "aa", "aa")
+    className: classnames("button-root", className)
   }
 
   if (to != null) {

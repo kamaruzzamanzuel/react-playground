@@ -24,7 +24,7 @@ const Root = () => {
         <RouterButton to='/mui-x-grid' >
           MUI X Grid
         </RouterButton>
-        <RouterButton to='/kendo-grid'>
+        <RouterButton to='/kendo-grid' className='btn-primary'>
           Kendo Grid
         </RouterButton>
         <RouterButton to='/responsive-row-column-grid'>
@@ -47,6 +47,9 @@ const Root = () => {
         </RouterButton>
         <RouterButton to='https://google.com' target='_blank'>
           External Link  To New Tab
+        </RouterButton>
+        <RouterButton to='/' className='btn-secondary'>
+          Home 2
         </RouterButton>
         <RouterButton onClick={() => alert("test")}>
           Action Button
