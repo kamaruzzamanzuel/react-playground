@@ -1,3 +1,4 @@
+import "./ResponsiveRowColumnGrid.scss";
 
 const ResponsiveRowColumnGrid = () => {
   return (

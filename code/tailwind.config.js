@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     colors: {
-      primary: 'var(--color-primary)'
+      primary: 'var(--color-primary)',
+      cyan: 'cyan'
     },
     extend: {},
   },

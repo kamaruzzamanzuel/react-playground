@@ -28,7 +28,7 @@ const Root = () => {
           Kendo Grid
         </RouterButton>
         <RouterButton to='/responsive-row-column-grid'>
-        Responsive Row Column Grid
+          Responsive Row Column Grid
         </RouterButton>
       </div>
 
@@ -40,7 +40,7 @@ const Root = () => {
           Router Link
         </RouterButton>
         <RouterButton to='/' target='_blank'>
-        Router Link To New Tab
+          Router Link To New Tab
         </RouterButton>
         <RouterButton to='https://google.com'>
           External Link
