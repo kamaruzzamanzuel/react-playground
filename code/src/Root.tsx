@@ -54,6 +54,9 @@ const Root = () => {
         <RouterButton onClick={() => alert("test")}>
           Action Button
         </RouterButton>
+        <RouterButton to='/claim-details'>
+          Claim Details
+        </RouterButton>
       </div>
 
       <Outlet />

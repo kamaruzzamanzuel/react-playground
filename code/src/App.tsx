@@ -13,6 +13,8 @@ import AgGrid from './grid-examples/ag-grid/Index'
 import { LicenseManager } from "ag-grid-enterprise";
 import Root from './Root';
 import ResponsiveRowColumnGrid from './grid-system/ResponsiveRowColumnGrid';
+import ClaimDetails from './claim-details/ClaimDetails';
+
 LicenseManager.setLicenseKey("KEY HERE");
 
 const router = createBrowserRouter([
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/responsive-row-column-grid",
         element: <ResponsiveRowColumnGrid />
+      },
+      {
+        path: "/claim-details",
+        element: <ClaimDetails />,
       }
     ]
   }
