@@ -1,0 +1,15 @@
+$agency-theme-color-secondary-alt :#5a9eb1;
+$common-background:#dddddd;
+
+.claim-details-main {
+  background-color: $common-background;
+  padding: 1rem;
+  margin-top: 2rem;
+ h5{
+  color: $agency-theme-color-secondary-alt;
+ }
+}
+
+#root-div > *{
+ margin-right: 1rem;
+}

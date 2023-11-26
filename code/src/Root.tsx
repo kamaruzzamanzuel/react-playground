@@ -36,6 +36,9 @@ const Root = () => {
         <RouterButton onClick={() => alert("test")}>
           Home 3
         </RouterButton>
+        <RouterButton to='/claim-details'>
+          Claim Details
+        </RouterButton>
       </div>
 
       <Outlet />

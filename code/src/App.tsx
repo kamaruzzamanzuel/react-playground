@@ -12,6 +12,7 @@ import KendoGrid from './grid-examples/kendo-grid/Index'
 import AgGrid from './grid-examples/ag-grid/Index'
 import { LicenseManager } from "ag-grid-enterprise";
 import Root from './Root';
+import ClaimDetails from './claim-details/ClaimDetails';
 LicenseManager.setLicenseKey("KEY HERE");
 
 const router = createBrowserRouter([
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       {
         path: "/kendo-grid",
         element: <KendoGrid />,
-      }
+      },
+      {
+        path: "/claim-details",
+        element: <ClaimDetails />,
+      },
     ]
   }
 ]);
