@@ -20,42 +20,24 @@ const Root = () => {
         <RouterButton to='/ag-grid' variant='outlined'>
           AG Grid
         </RouterButton>
+        <RouterButton to='/ag-grid' className='btn-primary' variant='outlined'>
+          AG Grid
+        </RouterButton>
         {/* <RouterButton to='/mui-x-grid' target="_blank" className='hover:text-black hover:!bg-white'> */}
-        <RouterButton to='/mui-x-grid' >
+        <RouterButton to='/mui-x-grid' className='btn-primary hover:bg-primary' disabled color='secondary'>
           MUI X Grid
         </RouterButton>
-        <RouterButton to='/kendo-grid' className='btn-primary'>
+        <RouterButton to='/kendo-grid'>
           Kendo Grid
         </RouterButton>
         <RouterButton to='/responsive-row-column-grid'>
           Responsive Row Column Grid
         </RouterButton>
-      </div>
-
-      <div className='flex justify-center gap-5 pb-5'>
-        {/* <Button component="a" href="/">
-          Home 2
-        </Button> */}
-        <RouterButton to='/'>
-          Router Link
-        </RouterButton>
-        <RouterButton to='/' target='_blank'>
-          Router Link To New Tab
-        </RouterButton>
-        <RouterButton to='https://google.com'>
-          External Link
-        </RouterButton>
-        <RouterButton to='https://google.com' target='_blank'>
-          External Link  To New Tab
-        </RouterButton>
-        <RouterButton to='/' className='btn-secondary'>
-          Home 2
-        </RouterButton>
-        <RouterButton onClick={() => alert("test")}>
-          Action Button
-        </RouterButton>
         <RouterButton to='/claim-details'>
           Claim Details
+        </RouterButton>
+        <RouterButton to='/button-examples'>
+          Button Examples
         </RouterButton>
       </div>
 
@@ -64,4 +46,4 @@ const Root = () => {
   )
 }
 
-export default Root
+export default Root;
