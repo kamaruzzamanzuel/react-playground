@@ -1,0 +1,17 @@
+.detail-item {
+  display: flex;
+}
+.detail-item-label {
+  width: 35%;
+  text-align: left;
+  font-weight: lighter;
+}
+.detail-item-value {
+  width: 65%;
+  text-align: left;
+  font-weight: 500;
+  padding-left: 5px;
+}
+.dara-child a{
+  text-align: left;
+}

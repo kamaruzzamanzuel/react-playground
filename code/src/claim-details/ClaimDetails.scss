@@ -1,15 +1,56 @@
 $agency-theme-color-secondary-alt :#5a9eb1;
-$common-background:#dddddd;
+$common-background: #bebebe7a;
 
 .claim-details-main {
-  background-color: $common-background;
-  padding: 1rem;
-  margin-top: 2rem;
- h5{
-  color: $agency-theme-color-secondary-alt;
- }
+  margin-top: 20px;
+
+  button {
+    padding: 5px;
+    border: 1px solid gray
+  }
+
+  .claim-details-buttons {
+    text-align: left;
+  }
 }
 
-#root-div > *{
- margin-right: 1rem;
+.claim-details {
+  padding: 15px 25px;
+  margin-top: 32px;
+  width: 500px;
+
+  h5 {
+    font-weight: 600;
+  }
+
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+}
+
+.claim-details-light {
+  background-color: $common-background;
+
+  h5 {
+    color: $agency-theme-color-secondary-alt;
+  }
+}
+
+.claim-details-dark {
+  background-color: #000000;
+  color: rgba(240, 248, 255, 0.781);
+
+  h5 {
+    color: rgba(255, 255, 255, 0.781);
+  }
+}
+
+.details-fields {
+  font-size: 14px;
+}
+
+#root-div>* {
+  margin-right: 16px;
 }
