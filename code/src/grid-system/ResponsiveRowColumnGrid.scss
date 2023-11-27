@@ -1,3 +1,21 @@
-.box{
-    @apply bg-cyan;
+.box {
+    @apply bg-primary;
+}
+
+/* .row{
+
+}
+
+@layer components{
+    .row{
+        @apply grid grid-cols-12
+    }
+} */
+
+.row>div {
+    background-color: var(--color-blue);
+}
+
+.row>div.col {
+    @apply col-12;
 }

@@ -30,8 +30,8 @@ const ResponsiveRowColumnGrid = () => {
 
       <h2 className="font-bold text-3xl">Example 3</h2>
 
-      <div className="mt-4 grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-12">
-        <div className="box">1</div>
+      <div className="mt-4 grid gap-2 grid-cols-12">
+        <div className="box col-span-12">1</div>
         <div className="box sm:col-span-2">2</div>
         <div className="box md:col-span-3">3</div>
         <div className="box sm:col-span-2 md:col-span-6">4</div>
@@ -39,11 +39,45 @@ const ResponsiveRowColumnGrid = () => {
 
       Another way
 
-      <div className="mt-4 grid gap-4 grid-cols-12">
-        <div className="box col-span-6 sm:col-span-4 md:col-span-1">1</div>
-        <div className="box col-span-6 sm:col-span-8 md:col-span-2">2</div>
-        <div className="box col-span-6 sm:col-span-4 md:col-span-3">3</div>
-        <div className="box col-span-6 sm:col-span-8 md:col-span-6">4</div>
+      {/* <div className="mt-4 gap-4 row"> */}
+      <div className="mt-4 gap-4 grid grid-cols-12">
+        <div className="box md:col-span-6 xl:col-span-4">1</div>
+        <div className="box md:col-span-6 xl:col-span-4">2</div>
+        <div className="box md:col-span-6 xl:col-span-4">3</div>
+        <div className="box md:col-span-6 xl:col-span-4">4</div>
+      </div>
+
+      new plugin
+      <div className="">
+        <div className=" mt-2 gap-2 row row-cols-12">
+          <div className="col-3">
+            1 of 3
+          </div>
+          <div className="col-6">
+            2 of 3 (wider)
+          </div>
+          <div className="col-3">
+            3 of 3
+          </div>
+          <div className="col-3">
+            3 of 3
+          </div>
+        </div>
+        <div className="mt-2 gap-2 row row-cols-12">
+          <div className="col-12">
+            1 of 3
+          </div>
+          <div className="col-5">
+            2 of 3 (wider)
+          </div>
+          <div className="col-12">
+            3 of 3
+          </div>
+        </div>
+        <div className="mt-2 gap-2 row row-cols-12">
+          <div className="col-12 md:col-8">col-12 md:col-8</div>
+          <div className="col-6 md:col-4">col-6 md:col-4</div>
+        </div>
       </div>
     </>
   )

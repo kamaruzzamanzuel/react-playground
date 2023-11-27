@@ -57,6 +57,9 @@ const Root = () => {
         <RouterButton to='/claim-details'>
           Claim Details
         </RouterButton>
+        <RouterButton className='btn-red'>
+        btn-red
+        </RouterButton>
       </div>
 
       <Outlet />
