@@ -10,7 +10,7 @@ const Root = () => {
     <>
       <h1>Vite + React</h1>
 
-      <div className="t-card">
+      <div className="card">
         <button className='vite-increment' onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
