@@ -5,12 +5,13 @@
   width: 35%;
   text-align: left;
   font-weight: lighter;
+  padding-right: 5px;
 }
 .detail-item-value {
   width: 65%;
   text-align: left;
   font-weight: 500;
-  padding-left: 5px;
+  word-break: break-all;
 }
 .dara-child a{
   text-align: left;
