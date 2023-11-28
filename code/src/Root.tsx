@@ -10,13 +10,13 @@ const Root = () => {
     <>
       <h1>Vite + React</h1>
 
-      <div className="card">
+      <div className="t-card">
         <button className='vite-increment' onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
 
-      <div className='flex justify-center gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-gap-5 t-pb-5'>
         <RouterButton to='/ag-grid' variant='outlined'>
           AG Grid
         </RouterButton>
@@ -32,7 +32,7 @@ const Root = () => {
         </RouterButton>
       </div>
 
-      <div className='flex justify-center gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-gap-5 t-pb-5'>
         {/* <Button component="a" href="/">
           Home 2
         </Button> */}
@@ -57,8 +57,8 @@ const Root = () => {
         <RouterButton to='/claim-details'>
           Claim Details
         </RouterButton>
-        <RouterButton className='btn-red'>
-        btn-red
+        <RouterButton className='t-btn-red'>
+          btn-red
         </RouterButton>
       </div>
 

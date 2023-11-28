@@ -2,6 +2,7 @@
 const plugin = require('tailwindcss/plugin')
 
 export default {
+  prefix: "t-",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",

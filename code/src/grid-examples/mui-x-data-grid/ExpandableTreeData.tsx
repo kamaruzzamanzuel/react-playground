@@ -112,7 +112,7 @@ const getTreeDataPath: DataGridProProps['getTreeDataPath'] = (row) => row.hierar
 
 const ExpandableTreeData = () => {
   return (
-    <div id="grid_1" className="mt-10" style={{ height: 400, width: '100%' }}>
+    <div id="grid_1" className="t-mt-10" style={{ height: 400, width: '100%' }}>
       <DataGridPro
         treeData
         rows={rows}

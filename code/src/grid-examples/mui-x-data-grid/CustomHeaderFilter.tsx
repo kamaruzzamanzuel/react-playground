@@ -90,7 +90,7 @@ const CustomHeaderFilter = () => {
   );
 
   return (
-    <div id="grid_2" className="mt-10" style={{ height: 800, width: '100%' }}>
+    <div id="grid_2" className="t-mt-10" style={{ height: 800, width: '100%' }}>
       <DataGridPro {...data} columns={columns} unstable_headerFilters />
     </div>
   );

@@ -2,13 +2,13 @@
     @apply bg-primary;
 }
 
-/* .row{
+/* .t-row{
 
 }
 
 @layer components{
-    .row{
-        @apply grid grid-cols-12
+    .t-row{
+        @apply t-grid t-grid-cols-12
     }
 } */
 
@@ -16,6 +16,6 @@
     background-color: var(--color-blue);
 }
 
-.row>div.col {
-    @apply col-12;
+.t-row>div.t-col {
+    @apply t-col-12;
 }
