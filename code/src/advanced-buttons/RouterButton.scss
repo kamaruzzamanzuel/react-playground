@@ -1,23 +1,146 @@
+// #region .button-root
 
-.button-root.MuiButton-root {
+.button-root.MuiButtonBase-root {
   font-size: 16px;
   font-weight: 400;
   line-height: 21px;
   padding: 14px 29px 13px;
   text-transform: none;
+  border: 1px solid #1976d2;
+  // color: #fff;
+}
+
+.button-root.btn-small.MuiButtonBase-root {
+  line-height: 19px;
+  padding: 10px 20px 9px;
+}
+
+.button-root.MuiButtonBase-root.Mui-disabled {
+  opacity: .60;
 }
 
 @media only screen and (max-width: 991px) {
-  .button-root.MuiButton-root {
+  .button-root.MuiButtonBase-root {
     line-height: 19px;
     padding: 10px 20px 9px;
   }
 }
 
-.btn-primary {
+// #endregion
+
+// #region .btn-color-primary
+
+.btn-color-primary.MuiButtonBase-root,
+.btn-color-primary.MuiButtonBase-root.Mui-disabled,
+.btn-color-primary.MuiButtonBase-root.MuiButton-outlined:hover,
+.btn-color-primary.MuiButtonBase-root:hover {
+  border-color: var(--color-primary);
   background-color: var(--color-primary);
+  color: #fff;
 }
 
-.btn-secondary {
-  background-color: var(--color-secondary);
+.btn-color-primary.MuiButtonBase-root.MuiButton-outlined {
+  background-color: #fff;
+  color: var(--color-primary);
 }
+
+// #endregion
+
+// #region .btn-color-secondary
+
+.btn-color-secondary.MuiButtonBase-root,
+.btn-color-secondary.MuiButtonBase-root.Mui-disabled,
+.btn-color-secondary.MuiButtonBase-root.MuiButton-outlined:hover,
+.btn-color-secondary.MuiButtonBase-root:hover {
+  border-color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.btn-color-secondary.MuiButtonBase-root.MuiButton-outlined {
+  background-color: #fff;
+  color: var(--color-secondary);
+}
+
+// #endregion
+
+// #region .btn-secondary
+
+.btn-secondary.MuiButtonBase-root,
+.btn-secondary.MuiButtonBase-root.Mui-disabled {
+  border-color: var(--color-secondary);
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.btn-secondary.MuiButtonBase-root.MuiButton-outlined {
+  background-color: #fff;
+  color: var(--color-secondary);
+}
+
+.btn-secondary.MuiButtonBase-root:hover,
+.btn-secondary.MuiButtonBase-root.MuiButton-outlined:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+// #endRegion
+
+// #region .btn-grey-light
+
+.btn-grey-light.MuiButtonBase-root,
+.btn-grey-light.MuiButtonBase-root.Mui-disabled {
+  border-color: var(--color-grey-light);
+  background-color: var(--color-grey-light);
+  color: #fff;
+}
+
+.btn-grey-light.MuiButtonBase-root:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+// #endRegion
+
+// #region .btn-grey-dark
+
+.btn-grey-dark.MuiButtonBase-root,
+.btn-grey-dark.MuiButtonBase-root.Mui-disabled  {
+  border-color: var(--color-grey-dark);
+  background-color: var(--color-grey-dark);
+  color: #fff;
+}
+
+.btn-grey-dark.MuiButtonBase-root:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+// #endRegion
+
+// #region .btn-error
+
+.btn-error.MuiButtonBase-root,
+.btn-error.MuiButtonBase-root.Mui-disabled  {
+  border-color: var(--color-error-light);
+  background-color: var(--color-error-light);
+  color: #fff;
+}
+
+.btn-error.MuiButtonBase-root:hover {
+  border-color: var(--color-error-dark);
+  background-color: var(--color-error-dark);
+}
+
+// #endRegion
+
+// #region .btn-hover-*
+
+.btn-hover-grey-dark.MuiButtonBase-root:hover {
+  border-color: var(--color-grey-dark);
+  background-color: var(--color-grey-dark);
+  color: #fff;
+}
+
+// #endRegion

@@ -9,6 +9,7 @@ import { LicenseManager } from "ag-grid-enterprise";
 import Root from './Root';
 import ResponsiveRowColumnGrid from './grid-system/ResponsiveRowColumnGrid';
 import ClaimDetails from './claim-details/ClaimDetails';
+import ButtonExamples from "./advanced-buttons/ButtonExamples";
 
 LicenseManager.setLicenseKey("KEY HERE");
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/claim-details",
         element: <ClaimDetails />,
+      },
+      {
+        path: "/button-examples",
+        element: <ButtonExamples/>
       }
     ]
   }
