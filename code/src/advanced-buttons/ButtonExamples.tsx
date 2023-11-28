@@ -6,7 +6,7 @@ export const ButtonExamples = () => {
     <>
       <h3>Button Color Primary</h3>
 
-      <div className='flex justify-center items-center gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-gap-5 t-pb-5'>
         {/* <Button component="a" href="/">
           Home 2
         </Button> */}
@@ -29,7 +29,7 @@ export const ButtonExamples = () => {
 
       <h3>Button Color Secondary</h3>
 
-      <div className='flex justify-center items-center gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-gap-5 t-pb-5'>
         <RouterButton variant='outlined' className='btn-color-secondary'>
           Outlined
         </RouterButton>
@@ -49,7 +49,7 @@ export const ButtonExamples = () => {
 
       <h3>Button Secondary</h3>
 
-      <div className='flex justify-center items-center flex-wrap gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-flex-wrap t-gap-5 t-pb-5'>
         <RouterButton className='btn-secondary'>
           Button Secondary
         </RouterButton>
@@ -66,7 +66,7 @@ export const ButtonExamples = () => {
 
       <h4>Button Grey Light</h4>
 
-      <div className='flex justify-center items-center flex-wrap gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-flex-wrap t-gap-5 t-pb-5'>
         <RouterButton className='btn-grey-light'>
           Button Grey Light
         </RouterButton>
@@ -83,7 +83,7 @@ export const ButtonExamples = () => {
 
       <h4>Button Grey Dark</h4>
 
-      <div className='flex justify-center items-center flex-wrap gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-flex-wrap t-gap-5 t-pb-5'>
         <RouterButton className='btn-grey-dark'>
           Button Grey Dark
         </RouterButton>
@@ -94,7 +94,7 @@ export const ButtonExamples = () => {
 
       <h4>Button Error</h4>
 
-      <div className='flex justify-center items-center gap-5 pb-5'>
+      <div className='t-flex t-justify-center t-items-center t-flex-wrap t-gap-5 t-pb-5'>
         <RouterButton className='btn-error'>
           Button Error
         </RouterButton>
