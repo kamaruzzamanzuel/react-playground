@@ -1,8 +1,13 @@
+import RouterButton from "../advanced-buttons/RouterButton";
 import "./ResponsiveRowColumnGrid.scss";
 
 const ResponsiveRowColumnGrid = () => {
   return (
     <>
+      <RouterButton className='t-btn-red'>
+        btn-red
+      </RouterButton>
+
       <div className="t-grid t-grid-cols-1 lg:t-grid-cols-4 t-gap-4 lg:t-gap-8 m-5">
         <div className="t-border t-p-4 t-text-center t-col-span-1 lg:t-col-span-2">Takes one column on mobile and two on desktop</div>
         <div className="t-border t-p-4 t-text-center">One of three columns</div>

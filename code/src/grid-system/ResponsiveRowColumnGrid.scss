@@ -1,5 +1,5 @@
 .box {
-    @apply bg-primary;
+    @apply t-bg-primary;
 }
 
 /* .t-row{
@@ -12,7 +12,7 @@
     }
 } */
 
-.row>div {
+.t-row>div {
     background-color: var(--color-blue);
 }
 
