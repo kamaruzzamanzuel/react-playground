@@ -10,6 +10,7 @@ import Root from './Root';
 import ResponsiveRowColumnGrid from './grid-system/ResponsiveRowColumnGrid';
 import ClaimDetails from './claim-details/ClaimDetails';
 import ButtonExamples from "./advanced-buttons/ButtonExamples";
+import NotePanel from "./notes/NotePanel";
 
 LicenseManager.setLicenseKey("KEY HERE");
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/button-examples",
         element: <ButtonExamples/>
+      },
+      {
+        path: "/notes",
+        element: <NotePanel/>
       }
     ]
   }

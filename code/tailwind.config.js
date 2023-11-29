@@ -10,7 +10,7 @@ export default {
   theme: {
     colors: {
       primary: 'var(--color-primary)',
-      "grey-dark": 'var(--color-grey-dark)',
+      "grey-2": 'var(--color-grey-2)',
       cyan: 'cyan'
     },
     extend: {},
