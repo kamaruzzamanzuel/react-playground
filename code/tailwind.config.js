@@ -8,9 +8,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // container: false,
     colors: {
       primary: 'var(--color-primary)',
-      "grey-dark": 'var(--color-grey-dark)',
+      "grey-2": 'var(--color-grey-2)',
       cyan: 'cyan'
     },
     extend: {},
@@ -24,17 +25,21 @@ export default {
       '3xl': '1600px'
     }
   },
+  // corePlugins: {
+  //   container: false
+  // },
   plugins: [
     require('tailwind-bootstrap-grid')(
       {
         containerMaxWidths: {
-          'sm': '576px',
-          'md': '768px',
-          'lg': '992px',
-          'xl': '1200px',
-          '2xl': '1400px'
+          'sm': '540px',
+          'md': '720px',
+          'lg': '960px',
+          'xl': '1140px',
+          '2xl': '1320px',
+          "3xl": '1500px'
         },
-      //   // gridColumns: 12
+        //   // gridColumns: 12
       }
     ),
     plugin(function ({ addComponents }) {

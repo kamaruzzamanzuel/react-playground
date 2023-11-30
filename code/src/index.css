@@ -7,10 +7,13 @@
 }
 
 :root {
-  --color-green: #5fbb47;
+  /* --color-green: #5fbb47; */
+  /* --color-green: #97CA6C; */
+  --color-green: #8BC45B;
   --color-blue: #1a758f;
   --color-primary: var(--color-green);
   --color-secondary: var(--color-blue);
+  --color-link: var(--color-blue);
 
   /* Current */
   /* --color-error: #d32f2f;
@@ -21,9 +24,12 @@
   /* New */
   --color-error-light: #E28484;
   --color-error-dark: #E86B6B;
-  --color-grey-light: #CECECE;
-  --color-grey-dark: #9E9E9E;
+  --color-grey-1: #CECECE;
+  --color-grey-2: #9E9E9E;
+  --color-grey-3: #707070;
   --color-warning: #ff9700;
+  --color-orange: #e99009;
+  --color-text-black: #495057;
   --color-info: var(--color-blue);
 
   /* MUI */

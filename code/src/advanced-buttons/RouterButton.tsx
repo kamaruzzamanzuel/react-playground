@@ -3,7 +3,7 @@ import { Button, ButtonOwnProps, ButtonProps, ButtonTypeMap, ExtendButtonBase } 
 import { Link } from 'react-router-dom';
 // import defaultCss from "./RouterButton.scss";
 import "./RouterButton.scss";
-import classnames from "classnames";
+import clsx from "clsx";
 
 type TypeProps = {
   children: ReactNode;
@@ -27,8 +27,7 @@ const RouterButton = ({
 
   const additionButtonProps = {
     ...defaultButtonProps,
-    // className: classnames(defaultCss.buttonRoot, className, "aa", "aa")
-    className: classnames("button-root", className)
+    className: clsx("button-root", className)
   }
 
   if (to != null) {
@@ -104,4 +103,4 @@ const ATagButton = ({
   </Button>
 };
 
-export default RouterButton
+export default RouterButton;

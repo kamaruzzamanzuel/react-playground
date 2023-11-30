@@ -4,5 +4,12 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"tailwindCSS.experimental.classRegex": [
+			[
+				"clsx\\(([^)]*)\\)",
+				"(?:'|\"|`)([^']*)(?:'|\"|`)"
+			]
+		],
+	}
 }
