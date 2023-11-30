@@ -62,7 +62,7 @@ type TypeProps = {
   // doOnNoteMutation?: TypeNoteOnMutate;
 };
 
-const NoteItem = ({
+const NotePanelItem = ({
   item,
   noteKey,
   // provided,
@@ -324,8 +324,8 @@ const NoteItem = ({
 
   return (
     <div
-      // className={`${snapshot?.isDragging ? "dragging-item" : ""} note-item clearfix`}
-      className={`note-item clearfix`}
+      // className={`${snapshot?.isDragging ? "dragging-item" : ""} note-panel-item-container clearfix`}
+      className={`note-panel-item-container clearfix`}
       key={noteKey}
     // ref={provided?.innerRef}
     // {...provided?.draggableProps}
@@ -333,26 +333,26 @@ const NoteItem = ({
     >
       {/* {
           canDragAndDrop && */}
-      <div className="note-drag-and-drop-icon">
+      <div className="item-drag-and-drop-icon">
         <DragIndicator />
       </div>
       {/* } */}
 
-      <div className={`note-content not-draggable-item ${!isReadOnly ? "not-read-only-item" : "read-only-item"}`}>
+      <div className={`note-panel-item not-draggable-item ${!isReadOnly ? "not-read-only-item" : "read-only-item"}`}>
         {
           item.title &&
-          <div className="note-title font-weight-bold">{item.isAlert && <span className="alert-dot"></span>}{item.title}</div>
+          <div className="item-title font-weight-bold">{item.isAlert && <span className="alert-dot"></span>}{item.title}</div>
         }
 
         {
           item.content &&
-          <div className="note-note display-as-pre">{item.content}</div>
+          <div className="item-content display-as-pre">{item.content}</div>
         }
 
         {
           item.hasFile &&
           // item.downloadUrl &&
-          <div className="note-file-container mgb-n-sm">
+          <div className="item-file-container mgb-n-sm">
             {/* <a
                 href={item.downloadUrl}
                 target={`${target ?? "_blank"}`}
@@ -380,17 +380,17 @@ const NoteItem = ({
           </div>
         }
 
-        <div className="t-flex t-justify-between">
+        <div>
           {
             item.categoryId &&
             // false&&
-            <div className="note-category small float-left">Category: {item.categoryLabel}</div>
+            <div className="item-category t-float-left">Category: <b>{item.categoryLabel}</b></div>
           }
 
           {
             (item.createdBy ||
               item.createdAt) &&
-            <div className="note-created-info color-grey mgb-sm small">
+            <div className="item-created-info color-grey mgb-sm small t-float-right">
               {
                 item.createdBy
                   ? <>
@@ -425,4 +425,4 @@ const NoteItem = ({
   );
 };
 
-export default NoteItem;
+export default NotePanelItem;
