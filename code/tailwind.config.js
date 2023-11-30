@@ -11,8 +11,7 @@ export default {
     // container: false,
     colors: {
       primary: 'var(--color-primary)',
-      secondary: 'var(--color-secondary)',
-      "grey-dark": 'var(--color-grey-dark)',
+      "grey-2": 'var(--color-grey-2)',
       cyan: 'cyan'
     },
     extend: {},

@@ -64,6 +64,24 @@
 
 // #endregion
 
+// #region .btn-color-grey
+
+.btn-color-grey.MuiButtonBase-root,
+.btn-color-grey.MuiButtonBase-root.Mui-disabled,
+.btn-color-grey.MuiButtonBase-root.MuiButton-outlined:hover,
+.btn-color-grey.MuiButtonBase-root:hover {
+  border-color: var(--color-grey-2);
+  background-color: var(--color-grey-2);
+  color: #fff;
+}
+
+.btn-color-grey.MuiButtonBase-root.MuiButton-outlined {
+  background-color: #fff;
+  color: var(--color-grey-2);
+}
+
+// #endregion
+
 // #region .btn-secondary
 
 .btn-secondary.MuiButtonBase-root,
@@ -87,32 +105,48 @@
 
 // #endRegion
 
-// #region .btn-grey-light
+// #region .btn-grey-1
 
-.btn-grey-light.MuiButtonBase-root,
-.btn-grey-light.MuiButtonBase-root.Mui-disabled {
-  border-color: var(--color-grey-light);
-  background-color: var(--color-grey-light);
+.btn-grey-1.MuiButtonBase-root,
+.btn-grey-1.MuiButtonBase-root.Mui-disabled {
+  border-color: var(--color-grey-1);
+  background-color: var(--color-grey-1);
   color: #fff;
 }
 
-.btn-grey-light.MuiButtonBase-root:hover {
+.btn-grey-1.MuiButtonBase-root:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
 
 // #endRegion
 
-// #region .btn-grey-dark
+// #region .btn-grey-2
 
-.btn-grey-dark.MuiButtonBase-root,
-.btn-grey-dark.MuiButtonBase-root.Mui-disabled  {
-  border-color: var(--color-grey-dark);
-  background-color: var(--color-grey-dark);
+.btn-grey-2.MuiButtonBase-root,
+.btn-grey-2.MuiButtonBase-root.Mui-disabled {
+  border-color: var(--color-grey-2);
+  background-color: var(--color-grey-2);
   color: #fff;
 }
 
-.btn-grey-dark.MuiButtonBase-root:hover {
+.btn-grey-2.MuiButtonBase-root:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+// #endRegion
+
+// #region .btn-grey-3
+
+.btn-grey-3.MuiButtonBase-root,
+.btn-grey-3.MuiButtonBase-root.Mui-disabled {
+  border-color: var(--color-grey-3);
+  background-color: var(--color-grey-3);
+  color: #fff;
+}
+
+.btn-grey-3.MuiButtonBase-root:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
 }
@@ -122,7 +156,7 @@
 // #region .btn-error
 
 .btn-error.MuiButtonBase-root,
-.btn-error.MuiButtonBase-root.Mui-disabled  {
+.btn-error.MuiButtonBase-root.Mui-disabled {
   border-color: var(--color-error-light);
   background-color: var(--color-error-light);
   color: #fff;
@@ -137,10 +171,30 @@
 
 // #region .btn-hover-*
 
-.btn-hover-grey-dark.MuiButtonBase-root:hover {
-  border-color: var(--color-grey-dark);
-  background-color: var(--color-grey-dark);
+.btn-hover-grey-2.MuiButtonBase-root:hover {
+  border-color: var(--color-grey-2);
+  background-color: var(--color-grey-2);
   color: #fff;
 }
 
 // #endRegion
+
+// #region .btn-icon
+
+.button-root.btn-icon {
+  padding: 12px;
+  min-width: 50px;
+}
+
+// #endRegion
+
+// #region .btn-custom
+
+.button-root.btn-custom-1 .MuiSvgIcon-root {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+
+// #endRegion
+
