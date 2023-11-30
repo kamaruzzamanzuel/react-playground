@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { TypeNote, TypeNoteListItem } from './Note.Types';
 import { data } from './DummyData';
-import NoteItem from './parts/NoteItem';
+import NotePanelItem from './parts/NotePanelItem';
 import './Note.scss'
 
 type Props = {
@@ -43,14 +43,14 @@ export const NotePanel = ({
   return (
     <>
       <div className='row'>
-        <div className='col-xl-6 left-div'>
+        <div className='col-lg-6 left-div'>
 
         </div>
-        <div className='col-xl-6 note-panel'>
+        <div className='col-lg-6 note-panel'>
           {
             localItems.length > 0 &&
             localItems.map((item, index) =>
-              <NoteItem
+              <NotePanelItem
                 noteKey={index}
                 key={index}
                 item={item}
