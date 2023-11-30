@@ -3,8 +3,7 @@ $common-background: #bebebe7a;
 
 .claim-details-main {
   margin-top: 20px;
-  width: 800px;
-
+  // width: 800px;
   button {
     padding: 5px;
     border: 1px solid gray
@@ -13,12 +12,15 @@ $common-background: #bebebe7a;
   .claim-details-buttons {
     text-align: left;
   }
+  .details-and-pdf{
+    
+  }
 }
 
 .claim-details {
   padding: 15px 25px;
-  margin-top: 32px;
   border-radius: 10px;
+  height: 100%;
 
   .details-header {
     display: flex;
