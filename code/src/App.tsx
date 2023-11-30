@@ -37,15 +37,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/claim-details",
-        element: <ClaimDetails />,
-      },
+        element: <ClaimDetails />
+      }
+      ,
       {
         path: "/button-examples",
-        element: <ButtonExamples/>
+        element: <ButtonExamples />
       },
       {
         path: "/notes",
-        element: <NotePanel/>
+        element: <NotePanel />
       }
     ]
   }

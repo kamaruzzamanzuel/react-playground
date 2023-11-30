@@ -8,7 +8,7 @@ type DetailFieldProps = {
   children?: React.ReactNode;
 };
 
-const formatCurrency = (value?: number, IsWrapNegativeWithBracket = true) => {
+export const formatCurrency = (value?: number, IsWrapNegativeWithBracket = true) => {
   if (value == null)
     return "";
 
@@ -30,7 +30,7 @@ const formatCurrency = (value?: number, IsWrapNegativeWithBracket = true) => {
 
 const DetailItem = ({
   label,
-  value,
+  value="--",
   renderType,
   className,
   children
@@ -75,7 +75,7 @@ const DetailItem = ({
               return (
                 <div
                   key={index}
-                  className="mgr-sm mb-1 mt-1 float-left"
+                  className="mgr-sm t-mb-1 mt-1 float-left"
                 >
                   {/* <Chip className='fs-14 default-font-family' size='small' label={valueItem} style={{ marginBottom: '0px' }} /> */}
                 </div>
