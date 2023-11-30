@@ -17,14 +17,11 @@ const Root = () => {
       </div>
 
       <div className='t-flex t-justify-center t-gap-5 t-pb-5'>
-        <RouterButton to='/ag-grid' variant='outlined'>
-          AG Grid
-        </RouterButton>
-        <RouterButton to='/ag-grid' className='btn-primary' variant='outlined'>
+        <RouterButton to='/ag-grid' className='btn-color-primary' variant='outlined'>
           AG Grid
         </RouterButton>
         {/* <RouterButton to='/mui-x-grid' target="_blank" className='hover:text-black hover:!bg-white'> */}
-        <RouterButton to='/mui-x-grid' className='btn-primary hover:bg-primary' disabled color='secondary'>
+        <RouterButton to='/mui-x-grid' className='btn-color-primary' color='secondary'>
           MUI X Grid
         </RouterButton>
         <RouterButton to='/kendo-grid'>
