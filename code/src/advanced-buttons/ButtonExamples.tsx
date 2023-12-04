@@ -1,6 +1,6 @@
 import React from 'react';
 import RouterButton from './RouterButton';
-import { CheckCircle, Segment } from '@mui/icons-material';
+import { CheckCircle, Delete, Segment } from '@mui/icons-material';
 // import CheckCircle from ''
 
 export const ButtonExamples = () => {
@@ -122,6 +122,9 @@ export const ButtonExamples = () => {
       <div className='t-flex t-justify-center t-items-center t-flex-wrap t-gap-5 t-pb-5'>
         <RouterButton className='btn-grey-3 btn-icon'>
           <Segment />
+        </RouterButton>
+        <RouterButton className='btn-grey-3 btn-icon btn-small'>
+          <Delete />
         </RouterButton>
       </div>
 

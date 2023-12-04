@@ -9,14 +9,14 @@ $common-background: #bebebe7a;
   }
 
   .claim-items {
-    height: 400px;
+    padding: 10px;
     background-color: #afd2db;
     margin-top: 10px;
     border: 3px solid #adab21;
     z-index: 1;
+    text-align: justify;
   }
 }
-
 
 .claim-details {
   padding: 15px 25px;

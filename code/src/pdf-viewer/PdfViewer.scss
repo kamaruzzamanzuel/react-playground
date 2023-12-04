@@ -1,26 +1,3 @@
-.pdf-style {
-  // position: relative;
-}
-
-.pdf-viewer-container-main {
-  position: relative;
-  z-index: 2;
-}
-
-// .pdf-viewer-container {
-//   border: 0px;
-
-// }
-
-// .pdf-viewer {
-//   width: 100%;
-//   margin-left: auto;
-//   margin-right: auto;
-//   display: flex;
-//   flex-direction: column;
-
-// }
-
 .pdf-viewer-modal .react-pdf__Document {
   display: flex;
   flex-direction: column;
@@ -36,32 +13,29 @@
   position: relative;
 }
 
-.pdf-viewer-content {
-  // display: flex;
-  // flex: 1;
-  // overflow: hidden;
-}
-
 .pdf-footer {
-  // position: absolute;
-  // bottom: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
   background-color: #F5F5F5;
+  position: relative;
+  z-index: 20;
+  
 
   .collapse-button {
     background-color: #7BB2C1;
+    padding: 5px;
     border: 0;
   }
 
-  .delete-button {
+  .delete-btn {
     background-color: #E28484;
     border: 0;
-  }
-
-  button {
     padding: 5px;
+    color: white;
   }
 
+  .expanded {
+    transform: rotate(180deg);
+  }
 }
