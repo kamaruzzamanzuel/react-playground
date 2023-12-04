@@ -7,21 +7,8 @@ import lodashDebounce from 'lodash/debounce';
 import PdfViewer from "../pdf-viewer/PdfViewer";
 
 const ClaimDetails = () => {
-  const [height, setHeight] = useState<any>(null);
   const [isDark, setIsDark] = useState<boolean>(false);
-  const darkTheme = `${!isDark ? "claim-details-light" : "claim-details-dark"} claim-details side-item-container col-md-6`;
-
-  const resizeViewport = async () => {
-    const pages = document.getElementsByClassName("claim-details");
-    console.log({heightttt: pages[0].clientHeight});
-    await setHeight(pages[0].clientHeight);
-  };
-
-  useEffect(() => {
-    
-    resizeViewport()
-
-  }, []);
+  const darkTheme = `${!isDark ? "claim-details-light" : "claim-details-dark"} claim-details  side-item-container col-md-6 viewer-height`;
 
   return (
     <div className="claim-details-main">
@@ -89,7 +76,7 @@ const ClaimDetails = () => {
               >
                 <a href="http://google.com">google</a>
               </DetailItem>
-             
+
             </div>
             <div className="col-xl-6">
               <DetailItem
@@ -138,14 +125,15 @@ const ClaimDetails = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <PdfViewer url="/sample.pdf" viewerHeight={height} />
+        <div className="col-md-6 col-xs-12">
+          <PdfViewer url="/sample.pdf" viewerHeightClass="viewer-height"/>
         </div>
-      </div>
-
-      <div className="t-h-[400px] t-bg-primary mt-2">
 
       </div>
+      <div className=" claim-items " >
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta voluptates, hic vero natus reiciendis iusto, quidem minus distinctio, fuga quod deserunt veritatis atque excepturi sint numquam velit laudantium. Enim modi ullam qui. Voluptatum, unde consequuntur blanditiis fuga error pariatur! Vitae animi, assumenda magni non, dolores libero porro, ut expedita rem tempore iure vel! Expedita natus, modi mollitia id quam amet voluptate quas vero quaerat vitae atque at voluptatibus nesciunt recusandae iste nostrum tempora quae maxime assumenda corporis aliquam fuga nam. Tenetur, modi. Eius reiciendis expedita mollitia quis error dolorum odio consequatur sapiente harum numquam, magnam deleniti nobis nam rerum repellendus quisquam asperiores eveniet? Magni ab sequi, ad iusto enim, quidem odit nobis quos aspernatur sunt asperiores repellendus eveniet ducimus vero. Impedit alias natus cumque pariatur. Blanditiis at id ex ab rem rerum, odio aperiam libero provident expedita veniam eaque saepe repudiandae illo tempore magni animi placeat sint pariatur corporis fugit, accusantium, atque minus! Ad, quasi debitis commodi ut fugit similique ab. Dolorum, temporibus vitae maiores odit architecto alias vel laudantium delectus officia fugit unde necessitatibus saepe? Est inventore quis, illum, doloremque odio tenetur sunt voluptates iure obcaecati dolor dicta. Incidunt ipsum sunt eligendi odit fuga atque neque aliquam, impedit adipisci?
+        </div>
+
 
     </div>
   );

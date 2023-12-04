@@ -12,7 +12,7 @@ import { version } from "pdfjs-dist";
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-const FULL_HEIGHT = "calc(100vh - 182px)";
+const FULL_HEIGHT = "calc(100vh - 180px)";
 
 type Props = {
   file?: File;
@@ -21,7 +21,8 @@ type Props = {
   modalTitle?: string;
   preloadInModal?: boolean;
   pageNo?: number;
-  viewerHeight?: string;
+  viewerHeightClass: string;
+  viewerWidthClass: string;
   setTotalPageCount?: (count: number) => void;
 };
 // const tooltipOffset = { left: 8, top: 0 };
@@ -33,30 +34,38 @@ const PdfViewer = ({
   preloadInModal,
   modalTitle,
   pageNo,
-  viewerHeight,
+  viewerHeightClass,
   setTotalPageCount
 }: Props) => {
-  // const { url, file, isInModal, pageNo, viewerHeight, setTotalPageCount } = props;
-
-  // const [height, setHeight] = useState("calc(100vh - 182px)");
+  const [height, setHeight] = useState<any>(null);
   const [isCollapse, setIsCollapse] = useState<boolean>(true);
-  // const [height, setHeight] = useState(viewerHeight ?? "calc(100vh - 234px)");
   const [previewFileUrl, setPreviewFileUrl] = useState(url);
-
-  // const dispatch = useAppDispatch();
-  // const dispatchSetGenericModal = (data: TypeGenericModal) => dispatch(setGenericModal(data));
-
-  //#region custom layout
-
   const bookmarkPluginInstance = bookmarkPlugin();
   const toolbarPluginInstance = toolbarPlugin();
-  // const selectionModePluginInstance = selectionModePlugin();
   const selectionModePluginInstance = selectionModePlugin({
     selectionMode: SelectionMode.Text
   });
 
   const { Toolbar, renderDefaultToolbar } = toolbarPluginInstance;
   const { SwitchSelectionModeButton } = selectionModePluginInstance;
+
+  const resizeViewport = async () => {
+    const viewerHeight = document.getElementsByClassName(viewerHeightClass);
+    await setHeight(viewerHeight[0].clientHeight);
+  };
+
+  // console.log({ height });
+
+  useEffect(() => {
+    // resizeViewport();
+    const debouncedResize = lodashDebounce(resizeViewport, 200);
+    window.addEventListener('resize', debouncedResize);
+
+    return () => {
+      window.removeEventListener('resize', debouncedResize);
+    };
+
+  }, []);
 
   const transform: TransformToolbarSlot = (slot: ToolbarSlot) => ({
     ...slot,
@@ -78,44 +87,6 @@ const PdfViewer = ({
 
   //#endregion
 
-  const pdfHeight = `${viewerHeight}px`
-  console.log(pdfHeight);
-
-  const resizeViewport = () => {
-    const pages = document.getElementsByClassName("rpv-core__inner-page");
-
-    if (pages.length > 0) {
-      // const style = pages[0].getAttribute("style");
-      const pageHeight = pages[0].clientHeight;
-      // console.log({pageHeight});
-
-      // console.log({ style, pageHeight });
-      // if (!isInModal) {
-      //   setHeight(`${pageHeight}px`);
-      // }
-    }
-  };
-
-  useEffect(() => {
-    // console.log({ pdfJsVersion: version });
-
-    const debouncedResize = lodashDebounce(resizeViewport, 200);
-    window.addEventListener('resize', debouncedResize);
-
-    return () => {
-      window.removeEventListener('resize', debouncedResize);
-    };
-  }, []);
-  // console.log({viewerHeight});
-
-
-
-  // useEffect(() => {
-  //   if (preloadInModal && modalTitle && previewFileUrl) {
-  //     loadModal(previewFileUrl, modalTitle);
-  //   }
-  // }, [preloadInModal, modalTitle, previewFileUrl]);
-
   useEffect(() => {
     if (file) {
       // setPreviewFile(file);
@@ -127,86 +98,113 @@ const PdfViewer = ({
 
   const renderLoader = (percentages: number) => <LoadingPanel isShow={true} />;
   console.log(isCollapse);
+  const claimDetailsHeight = parseInt(height);
+
+  const screenWidth = window.innerWidth;
+  // console.log(screenWidth);
+  const mediumBigDevices = screenWidth > 767;
+
+  const handleCollapseButton = () => {
+
+    if (isCollapse && screenWidth <= 767) {
+      setIsCollapse(false)
+    }
+    if (isCollapse || mediumBigDevices) {
+      setIsCollapse(!isCollapse)
+    }
+  }
+
   return (
     (preloadInModal && modalTitle)
       ? <></>
-      : <div className='pdf-viewer-container-main'
+      : <div
+        className="pdf-style"
         style={{
-          // height: `${!!viewerHeight ? `${viewerHeight}px` : "calc(100vh - 60px)"}`,
-          height: `${!!isCollapse ? `${viewerHeight}px` : FULL_HEIGHT}`,
-          // maxHeight: height
+          height: `${(mediumBigDevices) ? `${height}px` : "unset"}`,
+          // height: `${height}px`,
         }}
       >
+        <div className='pdf-viewer-container-main'
+        // style={{
+        //   height: `${(!!isCollapse && wid>767) ? `${height}px` : FULL_HEIGHT}`,
+        //   // height: "100%"
+        // }}
+        >
+          {
+            previewFileUrl &&
+            <>
+              <div className={`pdf-viewer-container ${isInModal ? "pdf-viewer-modal" : ""}`}>
+                <Worker workerUrl={`//unpkg.com/pdfjs-dist@${version}/build/pdf.worker.js`}>
+                  <div
+                    className="pdf-viewer"
+                    style={{
 
-        {
-          previewFileUrl &&
-          <>
-            <div className={`pdf-viewer-container ${isInModal ? "pdf-viewer-modal" : ""}`}>
-              <Worker workerUrl={`//unpkg.com/pdfjs-dist@${version}/build/pdf.worker.js`}>
-                <div
-                  className="pdf-viewer"
-style={{
+                      // height: `${(!!isCollapse && wid>767) ? `${claimDetailsHeight - 36}px` : FULL_HEIGHT}`,
+                    }}
+                  >
+                    <div className="pdf-viewer-toolbar">
+                      {renderToolbar(Toolbar)}
 
-  height: `${!!isCollapse ? `${viewerHeight-36}px` : "calc(100vh - 218px)"}`,
-}}
-                >
-                  <div className="pdf-viewer-toolbar">
-                    {renderToolbar(Toolbar)}
-
-                    <div className="position-absolute" style={{
-                      height: 28,
-                      right: 50
-                    }}>
-                      <span className="d-inline-block" style={{ padding: '0px 2px' }}>
-                        <SwitchSelectionModeButton mode={SelectionMode.Hand} />
-                      </span>
-                      <span className="d-inline-block" style={{ padding: '0px 2px' }}>
-                        <SwitchSelectionModeButton mode={SelectionMode.Text} />
-                      </span>
-                      {
-                        previewFileUrl &&
+                      <div className="position-absolute" style={{
+                        height: 28,
+                        right: 50
+                      }}>
                         <span className="d-inline-block" style={{ padding: '0px 2px' }}>
-                          <Fullscreen
-                          // className="cursor-pointer"
-                          // onClick={() => loadModal(previewFileUrl, modalTitle)}
-                          />
+                          <SwitchSelectionModeButton mode={SelectionMode.Hand} />
                         </span>
-                      }
+                        <span className="d-inline-block" style={{ padding: '0px 2px' }}>
+                          <SwitchSelectionModeButton mode={SelectionMode.Text} />
+                        </span>
+                        {
+                          previewFileUrl &&
+                          <span className="d-inline-block" style={{ padding: '0px 2px' }}>
+                            <Fullscreen
+                            // className="cursor-pointer"
+                            // onClick={() => loadModal(previewFileUrl, modalTitle)}
+                            />
+                          </span>
+                        }
+                      </div>
+                    </div>
+
+                    <div className="pdf-viewer-content"
+
+                      style={{
+                        height: `${(!!isCollapse && mediumBigDevices) ? `${height - 80}px` : FULL_HEIGHT}`,
+                      }}
+                    >
+                      <Viewer
+                        fileUrl={previewFileUrl}
+                        plugins={[
+                          bookmarkPluginInstance,
+                          toolbarPluginInstance,
+                          selectionModePluginInstance
+                        ]}
+                        renderLoader={renderLoader}
+                        defaultScale={SpecialZoomLevel.PageWidth}
+                        onDocumentLoad={(event: any) => {
+                          // console.log({ event });
+
+                          if (setTotalPageCount) {
+                            setTotalPageCount(document.getElementsByClassName("rpv-core__inner-page").length);
+                          }
+
+                          resizeViewport();
+                        }}
+                        onRotate={resizeViewport}
+                      />
                     </div>
                   </div>
-
-                  <div className="pdf-viewer-content"              >
-                    <Viewer
-                      fileUrl={previewFileUrl}
-                      plugins={[
-                        bookmarkPluginInstance,
-                        toolbarPluginInstance,
-                        selectionModePluginInstance
-                      ]}
-                      renderLoader={renderLoader}
-                      defaultScale={SpecialZoomLevel.PageWidth}
-                      onDocumentLoad={(event: any) => {
-                        // console.log({ event });
-
-                        if (setTotalPageCount) {
-                          setTotalPageCount(document.getElementsByClassName("rpv-core__inner-page").length);
-                        }
-
-                        resizeViewport();
-                      }}
-                      onRotate={resizeViewport}
-                    />
-                  </div>
-                </div>
-              </Worker>
-            </div>
-          </>
-        }
+                </Worker>
+              </div>
+            </>
+          }
 
 
-        <div className="pdf-footer">
-          <button className='collapse-button' onClick={() => setIsCollapse(!isCollapse)}>expand</button>
-          <button className='delete-button' onClick={() => console.log("delete butoon clicking")}>DLT</button>
+          <div className="pdf-footer">
+            {mediumBigDevices ? <button className='collapse-button' onClick={handleCollapseButton}>{isCollapse && mediumBigDevices ? "expand" : "collapse"}</button> : ""}
+            <button className='delete-button' onClick={() => console.log("delete butoon clicking")}>DLT</button>
+          </div>
         </div>
       </div>
   );
