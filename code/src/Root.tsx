@@ -39,6 +39,9 @@ const Root = () => {
         <RouterButton to='/button-examples'>
           Button Examples
         </RouterButton>
+        <RouterButton to='/input'>
+          Input Fields
+        </RouterButton>
       </div>
 
       <Outlet />

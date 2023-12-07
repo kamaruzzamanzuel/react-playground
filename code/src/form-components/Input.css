@@ -1,0 +1,41 @@
+.MuiTextField-root {
+  width: 100%;
+}
+
+.input-field-padding {
+  padding: 10px;
+}
+
+.MuiTextField-root .MuiInputBase-root {
+  font-size: 14px;
+  line-height: unset;
+  padding: 0;
+}
+
+.MuiTextField-root .MuiInputBase-root .MuiInputBase-input {
+  height: unset;
+  padding: 14.5px 14px;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root fieldset,
+.MuiTextField-root .MuiOutlinedInput-root:hover fieldset
+{
+  border: 1px solid var(--color-secondary);
+}
+
+.MuiTextField-root label.Mui-focused {
+  color: var(--color-primary);
+}
+
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused fieldset {
+  border: 2px solid var(--color-primary);
+}
+
+.MuiTextField-root .MuiOutlinedInput-root.Mui-error:hover fieldset,
+.MuiTextField-root .MuiOutlinedInput-root.Mui-error.Mui-focused fieldset {
+  border-color: #d32f2f;
+}
+
+.MuiTextField-root label.Mui-error.Mui-focused{
+  color: #d32f2f;
+}
