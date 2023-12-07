@@ -1,18 +1,23 @@
 .detail-item {
   display: flex;
 }
+
 .detail-item-label {
-  width: 35%;
+  width: 40%;
   text-align: left;
   font-weight: lighter;
   padding-right: 5px;
+  font-size: 12px;
 }
+
 .detail-item-value {
-  width: 65%;
+  width: 60%;
   text-align: left;
   font-weight: 500;
   word-break: break-all;
+  font-size: 12px;
 }
-.dara-child a{
+
+.dara-child a {
   text-align: left;
 }

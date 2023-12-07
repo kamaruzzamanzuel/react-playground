@@ -1,10 +1,11 @@
-import { Button } from "@mui/material";
-import DetailItem from "../shared/detail-text-field/DetailsTextField";
+import { Button, Typography } from "@mui/material";
+import { DetailItem, DetailItemSingleCol } from "../shared/detail-text-field/DetailsTextField";
 import "./ClaimDetails.scss";
 import { useEffect, useState } from "react";
 import FooterData from "../shared/detail-text-field/DetailsFooterData";
 import lodashDebounce from 'lodash/debounce';
 import PdfViewer from "../pdf-viewer/PdfViewer";
+import Accordion from "../shared/accordion/Accordion";
 
 const ClaimDetails = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -25,84 +26,63 @@ const ClaimDetails = () => {
           </div>
 
           <div className="details-fields row">
-            <div className="col-xl-6">
-              <DetailItem
-                label="Participant "
-                value="participant "
-              />
-              <DetailItem
-                label="Claim no"
-                value="544"
-              />
-              <DetailItem
-                label="Plan"
-                value="9352151 15/10/2023 - 10/11/2023 "
-              />
-              <DetailItem
-                label="Interpreter Required "
-                value="abcd"
-              />
-              <DetailItem
-                label="Language Spoken"
-                value="spanish"
-              />
-              <DetailItem
-                label="percentage"
-                value={58}
-                renderType="percentage"
-              />
-              <DetailItem
-                label="Currency type"
-                value={9965}
-                renderType="money"
-              />
-              <DetailItem
-                label="boolean type"
-                value="true"
-                renderType="boolean"
-              />
-              <DetailItem
-                label="boolean type"
-                value="true"
-                renderType="boolean"
-              />
-              <DetailItem
-                label="boolean type"
-                value="true"
-                renderType="boolean"
-              />
-              <DetailItem
-                label="Link component"
-              >
-                <a href="http://google.com">google</a>
-              </DetailItem>
+            <div className="col-6">
+              <div className="row">
+                <DetailItemSingleCol
+                  label="Participant"
+                  value="participant"
+                />
+                <DetailItemSingleCol
+                  label="Claim no"
+                  value="544"
+                />
+                <DetailItemSingleCol
+                  label="Plan"
+                  value="9352151 15/10/2023 - 10/11/2023 "
+                />
+                <DetailItemSingleCol
+                  label="Interpreter Required"
+                  value="abcd"
+                />
+                <DetailItemSingleCol
+                  label="Language Spoken"
+                  value="spanish"
+                />
+                <DetailItemSingleCol
+                  label="percentage"
+                  value={58}
+                  renderType="PERCENTAGE"
+                />
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="row">
+                <DetailItemSingleCol
+                  label="percentage"
+                  value={58}
+                  renderType="PERCENTAGE"
+                />
+                <DetailItemSingleCol
+                  label="Currency type"
+                  value={58987}
+                  renderType="MONEY"
+                />
+                <DetailItemSingleCol
+                  label="boolean type"
+                  value="true"
+                  renderType="BOOLEAN"
+                />
+                <DetailItemSingleCol
+                  label="Link component"
+                >
+                  <a href="http://google.com">google</a>
+                </DetailItemSingleCol>
+                <DetailItemSingleCol
+                  label="Value missing"
+                />
+              </div>
+            </div>
 
-            </div>
-            <div className="col-xl-6">
-              <DetailItem
-                label="percentage"
-                value={58}
-                renderType="percentage"
-              />
-              <DetailItem
-                label="Currency type"
-                value={58987}
-                renderType="money"
-              />
-              <DetailItem
-                label="boolean type"
-                value="true"
-                renderType="boolean"
-              />
-              <DetailItem
-                label="Link component"
-              >
-                <a href="http://google.com">google</a>
-              </DetailItem>
-              <DetailItem
-                label="Value missing"
-              />
-            </div>
           </div>
           <div className={`${isDark ? "line-dark" : "line-light"} details-horizontal-line`}></div>
           <div className="details-footer">
@@ -113,28 +93,204 @@ const ClaimDetails = () => {
               <FooterData
                 label="Pay Amount"
                 value={58987}
-                renderType="money"
+                renderType="MONEY"
                 isDark={isDark}
               />
               <FooterData
                 label="Invoice Amount"
                 value={15000}
-                renderType="money"
+                renderType="MONEY"
                 isDark={isDark}
               />
             </div>
           </div>
         </div>
         <div className="col-md-6 col-xs-12">
-          <PdfViewer url="/sample.pdf" viewerHeightClass="viewer-height"/>
-          {/* <PdfViewer url="/pdf_test.pdf" viewerHeightClass="viewer-height"/> */}
+          <PdfViewer url="/sample.pdf" viewerHeightClass="viewer-height" />
         </div>
 
       </div>
-      <div className=" claim-items " >
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta voluptates, hic vero natus reiciendis iusto, quidem minus distinctio, fuga quod deserunt veritatis atque excepturi sint numquam velit laudantium. Enim modi ullam qui. Voluptatum, unde consequuntur blanditiis fuga error pariatur! Vitae animi, assumenda magni non, dolores libero porro, ut expedita rem tempore iure vel! Expedita natus, modi mollitia id quam amet voluptate quas vero quaerat vitae atque at voluptatibus nesciunt recusandae iste nostrum tempora quae maxime assumenda corporis aliquam fuga nam. Tenetur, modi. Eius reiciendis expedita mollitia quis error dolorum odio consequatur sapiente harum numquam, magnam deleniti nobis nam rerum repellendus quisquam asperiores eveniet? Magni ab sequi, ad iusto enim, quidem odit nobis quos aspernatur sunt asperiores repellendus eveniet ducimus vero. Impedit alias natus cumque pariatur. Blanditiis at id ex ab rem rerum, odio aperiam libero provident expedita veniam eaque saepe repudiandae illo tempore magni animi placeat sint pariatur corporis fugit, accusantium, atque minus! Ad, quasi debitis commodi ut fugit similique ab. Dolorum, temporibus vitae maiores odit architecto alias vel laudantium delectus officia fugit unde necessitatibus saepe? Est inventore quis, illum, doloremque odio tenetur sunt voluptates iure obcaecati dolor dicta. Incidunt ipsum sunt eligendi odit fuga atque neque aliquam, impedit adipisci? Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio suscipit aperiam sit adipisci quibusdam reprehenderit! Sed sunt iste mollitia, est error id maxime voluptas, consequuntur dolore tenetur ullam ea reiciendis doloremque, quae fuga adipisci sapiente! Quos quidem ea velit odit consequatur nobis iste molestias? Impedit, illum cupiditate assumenda voluptate nobis ipsa quod nulla, aliquid molestias iusto dolorem quas qui iure veritatis officiis? Reiciendis temporibus impedit labore quaerat quasi sint hic tenetur veritatis sapiente et. Delectus error ad labore explicabo, eos in modi earum nulla animi repudiandae possimus eaque nesciunt illum, omnis adipisci cum facilis, quia temporibus sit voluptate nemo! Deserunt tenetur odit porro delectus maxime voluptatibus fugit, quos fuga quis repellat ab optio quibusdam tempore excepturi quae inventore deleniti voluptates rerum minima vel! Animi temporibus a fugiat aut illum minima in. Consectetur et dolore at eos quae eum voluptatibus minus ipsa placeat explicabo, culpa velit doloribus corrupti libero minima voluptatum expedita cum odit nobis! Vel fuga doloremque earum modi, alias consequuntur neque voluptatibus debitis dolorem sapiente incidunt quam dicta aliquid velit illum nihil sint consequatur mollitia rem pariatur et est optio soluta. Blanditiis maiores ut rem magni porro atque voluptate magnam, nam tempora animi pariatur, iure error suscipit adipisci. Harum.
-        </div>
+      <div className=" row mt-3 acoordions-main-div" >
+        <div className="col-xl-12" >
 
+          <Accordion title="Personal Information" className="accordion-common">
+            <Typography>
+              <div className="row accordion-details-div">
+                <DetailItem
+                  label="First name"
+                  value="Zuel"
+                />
+                <DetailItem
+                  label="Preferred name"
+                  value="Zuel"
+                />
+                <DetailItem
+                  label="Primary disability"
+                  value="cerebral Palsy "
+                />
+                <DetailItem
+                  label="Country birth"
+                  value="France"
+                />
+                <DetailItem
+                  label="Interpreter type"
+                  value="Oral"
+                />
+                <DetailItem
+                  label="Middle name"
+                  value="Kamaruzzaman"
+                />
+                <DetailItem
+                  label="Gender"
+                  value="Male"
+                />
+                <DetailItem
+                  label="ATSI"
+                  value="No "
+                />
+                <DetailItem
+                  label="Language spoken"
+                  value="French"
+                />
+                <DetailItem
+                  label="Last name"
+                  value="SMK "
+                />
+                <DetailItem
+                  label="Pronoun choice"
+                  value="His"
+                />
+                <DetailItem
+                  label="CALD*"
+                  value={true}
+                  renderType="BOOLEAN"
+                />
+                <DetailItem
+                  label="Interpreter requited"
+                  value={true}
+                  renderType="BOOLEAN"
+                />
+                <DetailItem
+                  label="Payment"
+                  value="Successful"
+                />
+              </div>
+            </Typography>
+          </Accordion>
+
+        </div>
+        <div className="col-xl-12" >
+          <Accordion title="Contact Details" className="accordion-common">
+            <Typography>
+              <div className="row accordion-details-div">
+
+                <DetailItem
+                  label="Address"
+                  value="48 Hewlrtt Circuit"
+                />
+                <DetailItem
+                  label="State"
+                  value="NSW"
+                />
+                <DetailItem
+                  label="SJburb"
+                  value="Balmain"
+                />
+                <DetailItem
+                  label="Postcode"
+                  value="2615"
+                />
+                <DetailItem
+                  label="Phone"
+                  value="02 9999 999"
+                />
+                <DetailItem
+                  label="Mobile No"
+                  value="0434987654"
+                />
+                <DetailItem
+                  label="Email"
+                  value="zuel@gmail.com"
+                />
+
+                <DetailItem
+                  label="Preferred communicat"
+                  value="Phone"
+                />
+
+
+              </div>
+            </Typography>
+          </Accordion>
+        </div>
+        <div className="col-xl-12" >
+          <Accordion title="Account Information" className="accordion-common">
+            <Typography>
+              <div className="row accordion-details-div">
+
+                <DetailItem
+                  label="Account name"
+                  value="Kamaruzaman Zuel"
+                />
+
+                <DetailItem
+                  label="Account No"
+                  value="435122254"
+                />
+
+                <DetailItem
+                  label="GSB"
+                  value="312-458"
+                />
+
+              </div>
+
+            </Typography>
+          </Accordion>
+        </div>
+        <div className="col-xl-12" >
+          <Accordion title="Settings" className="accordion-common">
+            <Typography>
+              <div className="row accordion-details-div">
+
+                <DetailItem
+                  label="Email Notification"
+                  value={false}
+                  renderType="BOOLEAN"
+                />
+
+                <DetailItem
+                  label="Claim Approvar"
+                  value={true}
+                  renderType="BOOLEAN"
+                />
+
+                <DetailItem
+                  label="Receive Plan Report"
+                  value={false}
+                  renderType="BOOLEAN"
+                />
+                <DetailItem
+                  label="Auto monthly invoice"
+                  value={true}
+                  renderType="BOOLEAN"
+                />
+                <DetailItem
+                  label="Claim require approval"
+                  value={true}
+                  renderType="BOOLEAN"
+                />
+                <DetailItem
+                  label="User Name"
+                  value="user453"
+                />
+
+              </div>
+
+            </Typography>
+          </Accordion>
+        </div>
+      </div>
 
     </div>
   );
