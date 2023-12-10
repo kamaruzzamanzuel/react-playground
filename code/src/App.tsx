@@ -11,6 +11,7 @@ import ResponsiveRowColumnGrid from './grid-system/ResponsiveRowColumnGrid';
 import ClaimDetails from './claim-details/ClaimDetails';
 import ButtonExamples from "./advanced-buttons/ButtonExamples";
 import NotePanel from "./notes/NotePanel";
+import Input from "./form-components/Input";
 
 LicenseManager.setLicenseKey("KEY HERE");
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/notes",
         element: <NotePanel />
+      },
+      {
+        path: "/input",
+        element: <Input />
       }
     ]
   }
