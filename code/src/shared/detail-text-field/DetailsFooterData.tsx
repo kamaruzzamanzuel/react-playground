@@ -22,7 +22,7 @@ const FooterData = (
     content = ((value ?? "") !== "") ? value : "...";
   } else {
     switch (renderType) {
-      case "money":
+      case "MONEY":
         content = ((value ?? "") !== "") ? formatCurrency(parseFloat(value.toString())) : "...";
         break;
 

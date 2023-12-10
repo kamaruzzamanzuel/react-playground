@@ -24,7 +24,7 @@ type Props = {
   preloadInModal?: boolean;
   pageNo?: number;
   viewerHeightClass: string;
-  viewerWidthClass: string;
+  viewerWidthClass?: string;
   setTotalPageCount?: (count: number) => void;
 };
 
@@ -55,7 +55,7 @@ const PdfViewer = ({
     const viewerHeight = document.getElementsByClassName(viewerHeightClass);
     await setHeight(viewerHeight[0].clientHeight);
     const pdfPages = document.getElementsByClassName("rpv-core__inner-page");
-    await setFullHeight(`${pdfPages[0].clientHeight + ((pdfPages.length === 1) ? 0 : 3)}px`)
+    await setFullHeight(`${pdfPages[0].clientHeight + (pdfPages.length === 1 ? 0 : 3)}px`)
   };
 
   useEffect(() => {
@@ -98,8 +98,7 @@ const PdfViewer = ({
   }, [file, url]);
 
   const renderLoader = (percentages: number) => <LoadingPanel isShow={true} />;
-  console.log(isCollapse);
-  const claimDetailsHeight = parseInt(height);
+  console.log(isCollapse); 
 
   const screenWidth = window.innerWidth;
   // console.log(screenWidth);
@@ -111,7 +110,7 @@ const PdfViewer = ({
       : <div
         className="pdf-style"
         style={{
-          height: `${(mediumBigDevices) ? `${height}px` : "unset"}`,
+          height: `${(mediumBigDevices) ? `${height}px` : "unset"}`, position:"relative",zIndex:2
         }}
       >
         {

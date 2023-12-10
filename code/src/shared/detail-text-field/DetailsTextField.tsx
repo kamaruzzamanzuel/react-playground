@@ -1,9 +1,9 @@
 import "./DetailsTextField.scss"
 
-type DetailFieldProps = {
+export type DetailFieldProps = {
   label?: string | JSX.Element;
   value?: any;
-  renderType?: "DATE" | "DATE" | "MONEY" | "BOOLEAN" | "PERCENTAGE" | "DAY" | "ITEMS" | "CHIP_ITEMS";
+  renderType?: "DATE" | "DATE_TIME" | "MONEY" | "BOOLEAN" | "PERCENTAGE" | "DAY" | "ITEMS" | "CHIP_ITEMS";
   className?: string;
   children?: React.ReactNode;
 };
@@ -30,12 +30,11 @@ export const formatCurrency = (value?: number, IsWrapNegativeWithBracket = true)
 
 const DetailItem = ({
   label,
-  value="--",
+  value = "--",
   renderType,
-  className,
+  className = "col-md-6 col-xl-4",
   children
 }: DetailFieldProps) => {
-
   let content = null;
 
   const ItemLabel = () => <>{label}</>;
@@ -44,20 +43,20 @@ const DetailItem = ({
     content = ((value ?? "") !== "") ? value : "...";
   } else {
     switch (renderType) {
-      case "money":
+      case "MONEY":
         content = ((value ?? "") !== "") ? formatCurrency(parseFloat(value.toString())) : "...";
         break;
-      case "boolean":
+      case "BOOLEAN":
         content = (value ?? false) ? "Yes" : "No";
         // content = value == null ? "..." : (value === true) ? "Yes" : "No";
         break;
-      case "percentage":
+      case "PERCENTAGE":
         content = ((value ?? "") !== "") ? `${value}%` : "...";
         break;
-      case "day":
+      case "DAY":
         content = ((value ?? "") !== "") ? `${value} ${parseInt(value.toString()) > 1 ? "Days" : "Day"}` : "...";
         break;
-      case "items":
+      case "ITEMS":
         content =
           ((value as string[]).length > 0)
             ? (value as string[]).map((valueItem, index) => (
@@ -68,7 +67,7 @@ const DetailItem = ({
             : "...";
 
         break;
-      case "chipItems":
+      case "CHIP_ITEMS":
         content = ((value as string[]).length > 0)
           ? (value as string[]).map((valueItem, index) => {
             if (valueItem.length > 0) {
@@ -92,8 +91,9 @@ const DetailItem = ({
         break;
     }
   }
+
   return (
-    <div className={`${className} detail-item`}>
+    <div className={` detail-item  ${className}`}>
       <div className="detail-item-label"><ItemLabel /></div>
 
       <div className="detail-item-value">
@@ -116,4 +116,13 @@ const DetailItem = ({
   );
 };
 
-export default DetailItem;
+const DetailItemSingleCol = (props: DetailFieldProps) => {
+
+  return <DetailItem
+    {
+    ...{ ...props, className: props.className ?? "col-12" }
+     }
+  />
+
+}
+export { DetailItem, DetailItemSingleCol };
