@@ -52,7 +52,9 @@ const PdfViewer = ({
   const { SwitchSelectionModeButton } = selectionModePluginInstance;
 
   const resizeViewport = async () => {
+
     const viewerHeight = document.getElementsByClassName(viewerHeightClass);
+    // console.log({h: viewerHeight[0].clientHeight});
     await setHeight(viewerHeight[0].clientHeight);
     const pdfPages = document.getElementsByClassName("rpv-core__inner-page");
     await setFullHeight(`${pdfPages[0].clientHeight + (pdfPages.length === 1 ? 0 : 3)}px`)
@@ -171,7 +173,10 @@ const PdfViewer = ({
               mediumBigDevices &&
               <RouterButton
                 className='btn-icon btn-small btn-secondary pdf-expand'
-                onClick={() => setIsCollapse(!isCollapse)}
+                onClick={() => {
+                  setIsCollapse(!isCollapse);
+                  resizeViewport();
+                }}
               >
                 <ExpandCircleDownOutlinedIcon className={clsx((!isCollapse && mediumBigDevices) && "expanded")} />
               </RouterButton>

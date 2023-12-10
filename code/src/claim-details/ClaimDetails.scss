@@ -57,6 +57,13 @@ $common-background: #bebebe7a;
     border-radius: 3px;
     padding: 10px 15px;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    .infoIcon{
+      width: 14px;
+      color: #E28484;
+      margin-right: 10px;
+    }
   }
 
   .notification-dark {

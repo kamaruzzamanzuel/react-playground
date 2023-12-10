@@ -6,6 +6,7 @@ import FooterData from "../shared/detail-text-field/DetailsFooterData";
 import lodashDebounce from 'lodash/debounce';
 import PdfViewer from "../pdf-viewer/PdfViewer";
 import Accordion from "../shared/accordion/Accordion";
+import InfoIcon from '@mui/icons-material/Info';
 
 const ClaimDetails = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -87,6 +88,8 @@ const ClaimDetails = () => {
           <div className={`${isDark ? "line-dark" : "line-light"} details-horizontal-line`}></div>
           <div className="details-footer">
             <div className={`${isDark ? "notification-dark" : ""} notification-footer-data`}>
+              <InfoIcon className="infoIcon"/>
+
               Discripancy will be handled automatically
             </div>
             <div className="amount-footer-data">
