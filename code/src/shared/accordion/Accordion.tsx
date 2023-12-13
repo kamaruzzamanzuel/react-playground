@@ -7,29 +7,29 @@ type TypeProps = {
   title: string | React.ReactNode;
   children?: string | React.ReactNode | React.ReactNode[];
   expandIcon?: React.ReactNode;
-  className?: string;
   iconClassName?: string;
   isExpandIconFloatLeft?: boolean;
   isExpanded?: boolean;
   disabled?: boolean;
+  isDark?: boolean
 };
 
 const Accordion = ({
   title,
   expandIcon,
   children,
-  className,
   iconClassName,
   isExpanded,
   isExpandIconFloatLeft = false,
-  disabled
+  disabled,
+  isDark
 }: TypeProps) => {
 
   const [isOpen, setIsOpen] = useState(isExpanded);
 
   return (
     <DefaultAccordion
-      className={`npd custom-accordion ${className}`}
+      className={` custom-accordion ${isDark ? "accordion-common-dark" : "accordion-common-light"} `}
       disabled={disabled}
       expanded={isOpen}
     >
@@ -43,7 +43,6 @@ const Accordion = ({
         {title}
       </AccordionSummary>
       <AccordionDetails
-        className="npd"
       >
         {children}
       </AccordionDetails>

@@ -54,7 +54,7 @@ const PdfViewer = ({
   const resizeViewport = async () => {
 
     const viewerHeight = document.getElementsByClassName(viewerHeightClass);
-    // console.log({h: viewerHeight[0].clientHeight});
+    console.log({h: viewerHeight[0].clientHeight});
     await setHeight(viewerHeight[0].clientHeight);
     const pdfPages = document.getElementsByClassName("rpv-core__inner-page");
     await setFullHeight(`${pdfPages[0].clientHeight + (pdfPages.length === 1 ? 0 : 3)}px`)
@@ -112,7 +112,7 @@ const PdfViewer = ({
       : <div
         className="pdf-style"
         style={{
-          height: `${(mediumBigDevices) ? `${height}px` : "unset"}`, position:"relative",zIndex:2
+          height: `${(mediumBigDevices) ? `${height-50}px` : "unset"}`, position:"relative",zIndex:2
         }}
       >
         {
@@ -139,7 +139,7 @@ const PdfViewer = ({
                   <div className="pdf-viewer-content"
 
                     style={{
-                      height: `${(!!isCollapse && mediumBigDevices) ? `${height - 80}px` : fullHeight}`,
+                      height: `${(!!isCollapse && mediumBigDevices) ? `${height - 130}px` : fullHeight}`,
                     }}
                   >
                     <Viewer
