@@ -3,22 +3,29 @@ $common-background: #bebebe7a;
 
 .claim-details-main {
   margin-top: 20px;
-  width: 800px;
-
-  button {
-    padding: 5px;
-    border: 1px solid gray
-  }
 
   .claim-details-buttons {
     text-align: left;
+  }
+
+  .claim-items {
+    padding: 10px;
+    background-color: #afd2db;
+    margin-top: 10px;
+    border: 3px solid #adab21;
+    text-align: justify;
   }
 }
 
 .claim-details {
   padding: 15px 25px;
-  margin-top: 32px;
   border-radius: 10px;
+  height: 100%;
+
+  button {
+    padding: 5px;
+    border: 1px solid gray;
+  }
 
   .details-header {
     display: flex;
@@ -51,7 +58,8 @@ $common-background: #bebebe7a;
     padding: 10px 15px;
     font-size: 12px;
   }
-  .notification-dark{
+
+  .notification-dark {
     background-color: #F0F0F0;
     color: #29333C;
   }
@@ -81,6 +89,12 @@ $common-background: #bebebe7a;
 }
 
 .details-fields {
-  font-size: 12px;
+}
+.acoordions-main-div{
 
+  color: #FFFFFF!important;
+
+}
+.accordion-details-div{
+  text-align: left;
 }

@@ -1,0 +1,38 @@
+.pdf-viewer-modal .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.pdf-viewer-toolbar {
+  align-items: center;
+  background-color: #eeeeee;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 4px;
+}
+
+.pdf-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #F5F5F5;
+  
+
+  .collapse-button {
+    background-color: #7BB2C1;
+    padding: 5px;
+    border: 0;
+  }
+
+  .delete-btn {
+    background-color: #E28484;
+    border: 0;
+    padding: 5px;
+    color: white;
+  }
+
+  .expanded {
+    transform: rotate(180deg);
+  }
+}

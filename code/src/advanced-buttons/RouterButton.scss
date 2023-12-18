@@ -188,6 +188,19 @@
 
 // #endRegion
 
+// #region .btn-icon.btn-small
+
+.button-root.btn-icon.btn-small {
+  min-width: 40px;
+  padding: 10px 9px 9px;
+}
+
+.button-root.btn-icon.btn-small svg {
+  font-size: 19px;
+}
+
+// #endRegion
+
 // #region .btn-custom
 
 .button-root.btn-custom-1 .MuiSvgIcon-root {
@@ -197,4 +210,3 @@
 }
 
 // #endRegion
-
