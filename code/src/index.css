@@ -11,8 +11,10 @@
   /* --color-green: #97CA6C; */
   --color-green: #8BC45B;
   --color-blue: #1a758f;
+  --color-blue-light: #e7f1f4;
   --color-primary: var(--color-green);
   --color-secondary: var(--color-blue);
+  --color-secondary-alt: var(--color-blue-light);
   --color-link: var(--color-blue);
 
   /* Current */
@@ -20,7 +22,7 @@
   --color-warning: #ff9700;
   --color-info: var(--color-blue); */
 
-  
+
   /* New */
   --color-error-light: #E28484;
   --color-error-dark: #E86B6B;
@@ -81,6 +83,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+}
+
+.row {
+  --bs-gutter-x: 1.25rem;
+  --bs-gutter-y: 1.25rem;
+}
+
+.check-box-group{
+  --bs-gutter-y: 0;
+
 }
 
 body {

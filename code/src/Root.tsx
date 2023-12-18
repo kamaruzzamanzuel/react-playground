@@ -39,8 +39,8 @@ const Root = () => {
         <RouterButton to='/button-examples'>
           Button Examples
         </RouterButton>
-        <RouterButton to='/input'>
-          Input Fields
+        <RouterButton to='/form-examples'>
+          Form Examples
         </RouterButton>
       </div>
 

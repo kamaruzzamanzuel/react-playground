@@ -1,63 +1,57 @@
-import "./Input.css";
-import TextField from '@mui/material/TextField';
+import { InputAdornment } from '@mui/material';
+import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import clsx from 'clsx';
+import { useState } from 'react';
 
-const Input = () => {
+export type TypeInputProps<T extends TextFieldVariants = "outlined"> = {
+  label: string;
+  className?: string;
+  type?: "text" | "password" | "number" | "money" | "percentage";
+  variant?: T
+  // inputProps?: Record<string, any>;
+  // required?: boolean;
+  // isCustomField?: boolean;
+} & Omit<TextFieldProps<T>, "label" | "className" | "type" | "variant" | "multiline" | "rows">;
+
+export const Input = ({
+  label,
+  className,
+  type = "text",
+  variant,
+  ...rest
+}: TypeInputProps) => {
+  const textFieldType = ["number", "money", "percentage"].includes(type) ? "number" : type;
+  const [isOnFocus, setIsOnFocus] = useState(false);
+  const [value, setValue] = useState("");
+
+  const setInputAdornment = (value: any) => {
+    return (type === "money" && (value !== "" || isOnFocus))
+      ? <InputAdornment position="start"><b>$</b></InputAdornment>
+      : (type === "percentage" && (value !== "" || isOnFocus))
+        ? <InputAdornment position="start"><b>%</b></InputAdornment>
+        : (rest?.InputProps ?? {}).startAdornment;
+  };
+
   return (
-    <div className='row'>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
-        />
-      </div>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        />
-      </div>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          id="outlined-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-      </div>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          id="outlined-number"
-          label="Number"
-          type="number"
-          error={true}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </div>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          id="outlined-search"
-          label="Search field"
-          multiline={true}
-          minRows={3}
-          type="search" />
-      </div>
-      <div className="col-12 col-md-6 col-xl-3 input-field-padding">
-        <TextField
-          id="outlined-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-        />
-      </div>
-    </div >
+    <TextField
+      className={clsx("usability-input", className)}
+      variant={variant}
+      label={label}
+      type={textFieldType}
+      value={value}
+      onChange={() => setValue(value)}
+      onFocus={() => setIsOnFocus(true)}
+      onBlur={() => setIsOnFocus(false)}
+      InputProps={{
+        startAdornment: setInputAdornment(value)
+      }}
+      {...rest}
+    />
+    // <div
+    //   className='input-container'
+    // >
+
+    // </div>
   );
 };
 

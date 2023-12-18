@@ -10,7 +10,10 @@ export default {
   theme: {
     // container: false,
     colors: {
+      white: "#fff",
       primary: 'var(--color-primary)',
+      secondary: 'var(--color-secondary)',
+      "secondary-alt": 'var(--color-secondary-alt)',
       "grey-2": 'var(--color-grey-2)',
       cyan: 'cyan'
     },
