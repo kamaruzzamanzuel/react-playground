@@ -34,11 +34,11 @@
 }
 
 .MuiTextField-root label.Mui-focused {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .MuiTextField-root .MuiOutlinedInput-root.Mui-focused fieldset {
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-secondary);
 }
 
 .MuiTextField-root .MuiOutlinedInput-root.Mui-error:hover fieldset,
@@ -85,6 +85,30 @@
 .check-box-container {
   /* display: flex; */
   text-align: left;
+}
+
+/* #end region */
+
+/* #region radio design */
+
+.radio-container {
+  text-align: left;
+}
+
+.MuiFormControlLabel-root .MuiRadio-root.Mui-checked {
+  color: var(--color-secondary);
+}
+
+/* #end region */
+
+/* #region switch desing */
+
+.switch-container {
+  text-align: left;
+}
+
+.MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+  color: var(--color-secondary);
 }
 
 /* #end region */

@@ -10,7 +10,7 @@ export type TypeCheckBoxProps = {
   checked?: boolean;
   disabled?: boolean;
   onChange?: (value: boolean) => void | Promise<void>;
-} & Omit<CheckboxProps, "name" | "label" | "labelPlacement" | "className" | "checked" | "disabled">;
+} & Omit<CheckboxProps, "name" | "label" | "labelPlacement" | "checked" | "disabled">;
 
 export const CheckBox = ({
   name,
@@ -37,7 +37,7 @@ export const CheckBox = ({
             checked={isChecked}
             icon={icon}
             checkedIcon={checkedIcon}
-            onChange={async (event) => {
+            onChange={(event) => {
               setIsChecked(event.target.checked);
             }}
           />

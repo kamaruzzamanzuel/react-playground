@@ -1,11 +1,18 @@
-import { CheckBoxOutlineBlank, CheckBoxOutlined, CheckBoxTwoTone, Euro } from "@mui/icons-material";
 import "../form-components/Input.css";
-import TextField from '@mui/material/TextField';
-import InputAdornment from "@mui/material/InputAdornment";
-import { Checkbox } from "@mui/material";
-import { CheckBox, Input, TextArea } from "../form-components";
+import { CheckBox, Input, Radio, Switch, TextArea } from "../form-components";
 
 const Form = () => {
+  const genderGroups = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "Others" }
+  ];
+
+  const branchOptions = [
+    { value: "dhaka", text: "Dhaka" },
+    { value: "sydney", text: "Sydney" }
+  ];
+
   return (
     <div className="t-bg-white t-p-[20px]">
       <div className='row'>
@@ -35,17 +42,17 @@ const Form = () => {
             label="Read Only"
             defaultValue="Hello World"
             disabled
-            value="kjlghlk glkv"
-            // InputProps={{
-            //   readOnly: true,
-            // }}
+          // InputProps={{
+          //   readOnly: true,
+          // }}
           />
         </div>
         <div className="col-12 col-md-6 col-xl-3 input-field-padding">
           <Input
             label="Number"
             type="number"
-          // error={true}
+            error={true}
+            helperText={"Error occured"}
           // InputLabelProps={{
           //   shrink: true,
           // }}
@@ -96,13 +103,13 @@ const Form = () => {
         <div className="col-12 col-md-12 input-field-padding">
           <div className="check-box-group row">
             <div className="col-12 col-md-3">
-              <CheckBox label="Checkbox" />
+              <CheckBox label="Checkbox" disabled />
             </div>
             <div className="col-12 col-md-3">
-              <CheckBox label="Checkbox" />
+              <CheckBox label="Checkbox" checked={true} />
             </div>
             <div className="col-12 col-md-3">
-              <CheckBox label="Checkbox" />
+              <CheckBox label="Checkbox" checked={true} disabled />
             </div>
             <div className="col-12 col-md-3">
               <CheckBox label="Checkbox" />
@@ -120,6 +127,12 @@ const Form = () => {
               <CheckBox label="Checkbox" />
             </div>
           </div>
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 input-field-padding">
+          <Radio label="Radio Buttons" group={genderGroups} />
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 input-field-padding">
+          <Switch label="Radio Buttons" />
         </div>
       </div >
     </div>

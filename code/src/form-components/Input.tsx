@@ -22,7 +22,7 @@ export const Input = ({
 }: TypeInputProps) => {
   const textFieldType = ["number", "money", "percentage"].includes(type) ? "number" : type;
   const [isOnFocus, setIsOnFocus] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(rest.defaultValue ? undefined : "");
 
   const setInputAdornment = (value: any) => {
     return (type === "money" && (value !== "" || isOnFocus))
@@ -39,7 +39,7 @@ export const Input = ({
       label={label}
       type={textFieldType}
       value={value}
-      onChange={() => setValue(value)}
+      onChange={(e) => setValue(e.target.value)}
       onFocus={() => setIsOnFocus(true)}
       onBlur={() => setIsOnFocus(false)}
       InputProps={{
