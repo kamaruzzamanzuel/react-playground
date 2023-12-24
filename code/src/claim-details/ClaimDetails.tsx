@@ -1,23 +1,46 @@
-import { Button, Typography } from "@mui/material";
-import { DetailItem, DetailItemSingleCol } from "../shared/detail-text-field/DetailsTextField";
+import { useState } from "react";
+import {
+  Button,
+  Typography
+} from "@mui/material";
+import {
+  DetailItem,
+  DetailItemSingleCol
+} from "../shared/detail-text-field/DetailsTextField";
 import "./ClaimDetails.scss";
-import { useEffect, useState } from "react";
 import FooterData from "../shared/detail-text-field/DetailsFooterData";
-import lodashDebounce from 'lodash/debounce';
 import PdfViewer from "../pdf-viewer/PdfViewer";
 import Accordion from "../shared/accordion/Accordion";
+import InfoIcon from '@mui/icons-material/Info';
+import TabContext from "../shared/tab-contex/TabContext";
+import ImageViewer from "../shared/image-viewer/ImageViewer";
+import FileViewer from "../shared/file-viewer/FileViewer";
+
 
 const ClaimDetails = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
-  const darkTheme = `${!isDark ? "claim-details-light" : "claim-details-dark"} claim-details  side-item-container col-md-6 viewer-height`;
+  const darkTheme = `${!isDark ? "claim-details-light" : "claim-details-dark"} claim-details col-6`;
+  const allValues = [
+    { label: "PDF Viewer", value: "pdf", content: <FileViewer url="/sample.pdf" viewerHeightClass="claim-details" /> },
+    {
+      label: "Tab-1", value: "tab-1",
+      content:<FileViewer url="/image.png" viewerHeightClass="claim-details"/>
+    },
+    {
+      label: "Tab-2", value: "tab-2",
+      content: <div className="dummy-component">
+        <h3>Next Tab 2</h3>
+      </div>
+    }
+  ]
 
   return (
     <div className="claim-details-main">
-      <div className="claim-details-buttons">
+      <div className="d-flex claim-details-buttons ">
         {isDark ? <button onClick={() => setIsDark(false)}>Light</button> :
           <button onClick={() => setIsDark(true)}>Dark</button>}
       </div>
-      <div className="row mt-2 details-and-pdf">
+      <div className="mt-2 details-and-pdf row">
         <div className={darkTheme}>
           <div className="details-header">
             <h5 className="text-start">Claim - AA - 123</h5>
@@ -87,6 +110,8 @@ const ClaimDetails = () => {
           <div className={`${isDark ? "line-dark" : "line-light"} details-horizontal-line`}></div>
           <div className="details-footer">
             <div className={`${isDark ? "notification-dark" : ""} notification-footer-data`}>
+              <InfoIcon className="infoIcon" />
+
               Discripancy will be handled automatically
             </div>
             <div className="amount-footer-data">
@@ -105,15 +130,13 @@ const ClaimDetails = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 col-xs-12">
-          <PdfViewer url="/sample.pdf" viewerHeightClass="viewer-height" />
+        <div className=" col-6">
+          <TabContext allValues={allValues} />
         </div>
-
       </div>
-      <div className=" row mt-3 acoordions-main-div" >
-        <div className="col-xl-12" >
-
-          <Accordion title="Personal Information" className="accordion-common">
+      <div className=" row mt-3 acoordions-main-div " >
+        <div className="col-12">
+          <Accordion title="Personal Information" isDark={isDark} >
             <Typography>
               <div className="row accordion-details-div">
                 <DetailItem
@@ -177,10 +200,7 @@ const ClaimDetails = () => {
               </div>
             </Typography>
           </Accordion>
-
-        </div>
-        <div className="col-xl-12" >
-          <Accordion title="Contact Details" className="accordion-common">
+          <Accordion title="Contact Details" isDark={isDark}>
             <Typography>
               <div className="row accordion-details-div">
 
@@ -222,9 +242,7 @@ const ClaimDetails = () => {
               </div>
             </Typography>
           </Accordion>
-        </div>
-        <div className="col-xl-12" >
-          <Accordion title="Account Information" className="accordion-common">
+          <Accordion title="Account Information" isDark={isDark}>
             <Typography>
               <div className="row accordion-details-div">
 
@@ -247,9 +265,7 @@ const ClaimDetails = () => {
 
             </Typography>
           </Accordion>
-        </div>
-        <div className="col-xl-12" >
-          <Accordion title="Settings" className="accordion-common">
+          <Accordion title="Settings" isDark={isDark}>
             <Typography>
               <div className="row accordion-details-div">
 

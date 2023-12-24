@@ -118,10 +118,11 @@ const DetailItem = ({
 
 const DetailItemSingleCol = (props: DetailFieldProps) => {
 
+  const resuse = { ...props, className: props.className ?? "col-12" };
   return <DetailItem
     {
-    ...{ ...props, className: props.className ?? "col-12" }
-     }
+    ...resuse
+    }
   />
 
 }
