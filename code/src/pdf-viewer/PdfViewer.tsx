@@ -13,7 +13,11 @@ import {
   SelectionMode,
   selectionModePlugin
 } from '@react-pdf-viewer/selection-mode';
-import { Viewer, Worker, SpecialZoomLevel } from '@react-pdf-viewer/core';
+import {
+  Viewer,
+  Worker,
+  SpecialZoomLevel
+} from '@react-pdf-viewer/core';
 import { bookmarkPlugin } from '@react-pdf-viewer/bookmark';
 import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
 import { version } from "pdfjs-dist";
@@ -23,6 +27,7 @@ import RouterButton from '../advanced-buttons/RouterButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOutlined';
 import clsx from 'clsx';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 
 type Props = {
@@ -67,14 +72,14 @@ const PdfViewer = ({
     ...slot,
     Open: () => <></>,
     OpenMenuItem: () => <></>,
-    Download: () => <></>,
-    SwitchTheme: () => <></>,
+    // Download: () => <></>,
     SwitchThemeMenuItem: () => <></>,
     Search: () => <></>,
     ShowSearchPopover: () => <></>,
     Print: () => <></>,
-    EnterFullScreen: () => <></>
-    // https://react-pdf-viewer.dev/examples/use-the-default-buttons-to-switch-the-selection-mode/
+    SwitchTheme: () => <><SwitchSelectionModeButton mode={SelectionMode.Hand} /></>,
+    EnterFullScreen: () => <><SwitchSelectionModeButton mode={SelectionMode.Text} /></>,
+    Download: () => <><FullscreenIcon /></>,
   });
 
   const renderToolbar = (Toolbar: (props: ToolbarProps) => React.ReactElement) => (
@@ -116,17 +121,19 @@ const PdfViewer = ({
                 <div className="pdf-viewer-toolbar">
                   {renderToolbar(Toolbar)}
 
-                  <div className="position-absolute" style={{
-                    height: 28,
-                    right: 50
-                  }}>
+                  {/* <div
+                    className="position-absolute" style={{
+                      height: 28,
+                      right: 50
+                    }}
+                  >
                     <span className="d-inline-block" style={{ padding: '0px 2px' }}>
                       <SwitchSelectionModeButton mode={SelectionMode.Hand} />
                     </span>
                     <span className="d-inline-block" style={{ padding: '0px 2px' }}>
                       <SwitchSelectionModeButton mode={SelectionMode.Text} />
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="pdf-viewer-content"
