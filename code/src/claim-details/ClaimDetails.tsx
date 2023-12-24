@@ -13,19 +13,18 @@ import PdfViewer from "../pdf-viewer/PdfViewer";
 import Accordion from "../shared/accordion/Accordion";
 import InfoIcon from '@mui/icons-material/Info';
 import TabContext from "../shared/tab-contex/TabContext";
+import ImageViewer from "../shared/image-viewer/ImageViewer";
+import FileViewer from "../shared/file-viewer/FileViewer";
 
 
 const ClaimDetails = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
   const darkTheme = `${!isDark ? "claim-details-light" : "claim-details-dark"} claim-details col-6`;
   const allValues = [
-    { label: "PDF Viewer", value: "pdf", content: <PdfViewer url="/sample.pdf" viewerHeightClass="claim-details" /> },
+    { label: "PDF Viewer", value: "pdf", content: <FileViewer url="/sample.pdf" viewerHeightClass="claim-details" /> },
     {
       label: "Tab-1", value: "tab-1",
-      content:
-        <div className="dummy-component">
-          <h3>Next Tab 1</h3>
-        </div>
+      content:<FileViewer url="/image.png" viewerHeightClass="claim-details"/>
     },
     {
       label: "Tab-2", value: "tab-2",
