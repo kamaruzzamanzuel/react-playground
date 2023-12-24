@@ -1,4 +1,5 @@
 import { FormControlLabel, FormGroup, Switch as MUISwitch, SwitchProps } from '@mui/material';
+import "../form-components/form.css";
 
 export type TypeSwitchProps = {
   label?: string;

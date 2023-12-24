@@ -1,4 +1,6 @@
 import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import "../form-components/form.css";
+import clsx from 'clsx';
 
 export type TypeTextFieldProps<T extends TextFieldVariants = "outlined"> = {
   label: string;
@@ -22,6 +24,7 @@ export const TextArea = ({
 
   return (
     <TextField
+      className={clsx("usability-text-area", className)}
       label={label}
       variant={variant}
       // type={textAreaFieldType}

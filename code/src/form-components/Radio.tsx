@@ -1,5 +1,6 @@
 import { FormControl, FormLabel, RadioGroup, Radio as MUIRadio, RadioProps, FormControlLabel } from '@mui/material';
 import { useState } from 'react';
+import "../form-components/form.css";
 
 type TypeRadioProps = {
   name?: string;

@@ -1,5 +1,5 @@
-import "../form-components/Input.css";
-import { CheckBox, Input, Radio, Switch, TextArea } from "../form-components";
+
+import { CheckBox, Input, Radio, Select, Switch, TextArea } from "../form-components";
 
 const Form = () => {
   const genderGroups = [
@@ -61,6 +61,12 @@ const Form = () => {
         <div className="col-12 col-md-6 col-xl-3 input-field-padding">
           <TextArea
             label="Search field"
+          />
+        </div>
+        <div className="col-12 col-md-6 col-xl-3 input-field-padding">
+          <Select
+            label="Select field"
+            options={branchOptions}
           />
         </div>
         <div className="col-12 col-md-6 col-xl-3 input-field-padding">

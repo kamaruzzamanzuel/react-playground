@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CheckBoxOutlineBlank, CheckBoxOutlined } from '@mui/icons-material';
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
 import { FormControlLabel } from '@mui/material';
+import "../form-components/form.css";
 
 export type TypeCheckBoxProps = {
   name?: string;

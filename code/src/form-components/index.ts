@@ -3,3 +3,4 @@ export * from "./TextArea";
 export * from "./CheckBox";
 export * from "./Radio";
 export * from "./Switch";
+export * from "./Select";

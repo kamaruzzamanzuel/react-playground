@@ -1,0 +1,148 @@
+.MuiTextField-root {
+  width: 100%;
+}
+
+label.MuiFormLabel-root {
+  line-height: 18.4px;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root
+
+/* , */
+/* .MuiFormControl-root .MuiInputBase-root.MuiSelect-root */
+  {
+  font-size: 14px;
+  line-height: unset;
+  padding: 0px 14px;
+}
+
+.MuiInputBase-root .MuiInputBase-input
+/* , */
+/* .MuiFormControl-root .MuiSelect-root .MuiSelect-select.MuiOutlinedInput-input */
+ {
+  height: unset;
+  padding: 14.5px 0px;
+}
+
+.MuiInputBase-root>input[type=number]::-webkit-inner-spin-button,
+.MuiInputBase-root>input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.MuiOutlinedInput-root .MuiInputAdornment-root .MuiSvgIcon-root {
+  font-size: 20px;
+}
+
+.MuiOutlinedInput-root fieldset.MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-root.Mui-disabled fieldset.MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-root:hover fieldset.MuiOutlinedInput-notchedOutline {
+  border: 1px solid;
+  border-color: var(--color-grey-2);
+}
+
+label.MuiFormLabel-root.Mui-focused {
+  color: var(--color-secondary);
+}
+
+.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
+  border: 1px solid;
+  border-color: var(--color-secondary);
+}
+
+.MuiOutlinedInput-root.Mui-error:hover fieldset.MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-root.Mui-error.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
+  border-color: #d32f2f;
+}
+
+label.MuiFormLabel-root.Mui-error.Mui-focused {
+  color: #d32f2f;
+}
+
+.MuiOutlinedInput-root.Mui-disabled {
+  background-color: #e7f1f4;
+  border: none;
+}
+
+label.MuiFormLabel-root.Mui-focused,
+label.MuiFormLabel-root.MuiFormLabel-filled {
+  transform: translate(11px, -9px) scale(0.75);
+  /* transform: translate(12px, -10px) scale(0.75); */
+}
+
+label.MuiFormLabel-root+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span {
+  /* padding-right: 9px; */
+  font-size: 11px;
+}
+
+label.MuiFormLabel-root.Mui-focused.Mui-required+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span,
+label.MuiFormLabel-root.MuiFormLabel-filled.Mui-required+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span {
+  padding-right: 8px;
+}
+
+/* #region checkbox design */
+
+.MuiButtonBase-root.MuiCheckbox-root {
+  color: var(--color-grey-2);
+  padding: 13px;
+}
+
+.MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+  color: var(--color-secondary);
+}
+
+.check-box-container {
+  /* display: flex; */
+  text-align: left;
+}
+
+/* #end region */
+
+/* #region radio design */
+
+.radio-container {
+  text-align: left;
+}
+
+.MuiFormControlLabel-root .MuiRadio-root.Mui-checked {
+  color: var(--color-secondary);
+}
+
+/* #end region */
+
+/* #region switch desing */
+
+.switch-container {
+  text-align: left;
+}
+
+.MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+  color: var(--color-secondary);
+}
+
+/* #end region */
+
+@media only screen and (max-width: 1024px) {
+  /* region input */
+
+  label.MuiFormLabel-root:not(.Mui-focused):not(.MuiFormLabel-filled)
+  /* label.MuiFormLabel-root:not(.Mui-focused.MuiFormLabel-filled) */
+
+  /* label.MuiFormLabel-root:not(.MuiFormLabel-filled)  */
+    {
+    transform: translate(14px, 11px) scale(1);
+  }
+
+  .MuiInputBase-root .MuiInputBase-input {
+    padding: 9.5px 0px;
+  }
+
+  /* #end region */
+
+  /* region checkbox */
+
+  .MuiButtonBase-root.MuiCheckbox-root {
+    padding: 8px;
+  }
+
+  /* #end region */
+}

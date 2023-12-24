@@ -2,9 +2,10 @@ import { InputAdornment } from '@mui/material';
 import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
 import clsx from 'clsx';
 import { useState } from 'react';
+import "../form-components/form.css";
 
 export type TypeInputProps<T extends TextFieldVariants = "outlined"> = {
-  label: string;
+  label?: string;
   className?: string;
   type?: "text" | "password" | "number" | "money" | "percentage";
   variant?: T
