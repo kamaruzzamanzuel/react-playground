@@ -1,0 +1,430 @@
+From 51d71f89d2666d6a8d058dbd204a90f303f7ca2e Mon Sep 17 00:00:00 2001
+From: Nabadarshi Chakma <nabadarshi@faqinteractive.com.au>
+Date: Sun, 24 Dec 2023 15:09:45 +0600
+Subject: [PATCH] WIP - Input field update
+
+---
+ code/src/features/FormExamples.tsx    |  10 +-
+ code/src/form-components/CheckBox.tsx |   1 +
+ code/src/form-components/Input.css    | 140 ------------------------
+ code/src/form-components/Input.tsx    |   3 +-
+ code/src/form-components/Radio.tsx    |   1 +
+ code/src/form-components/Switch.tsx   |   1 +
+ code/src/form-components/TextArea.tsx |   3 +
+ code/src/form-components/form.css     | 148 ++++++++++++++++++++++++++
+ code/src/form-components/index.ts     |   3 +-
+ 9 files changed, 166 insertions(+), 144 deletions(-)
+ delete mode 100644 code/src/form-components/Input.css
+ create mode 100644 code/src/form-components/form.css
+
+diff --git a/code/src/features/FormExamples.tsx b/code/src/features/FormExamples.tsx
+index 87e63d5..74036d9 100644
+--- a/code/src/features/FormExamples.tsx
++++ b/code/src/features/FormExamples.tsx
+@@ -1,5 +1,5 @@
+-import "../form-components/Input.css";
+-import { CheckBox, Input, Radio, Switch, TextArea } from "../form-components";
++
++import { CheckBox, Input, Radio, Select, Switch, TextArea } from "../form-components";
+ 
+ const Form = () => {
+   const genderGroups = [
+@@ -63,6 +63,12 @@ const Form = () => {
+             label="Search field"
+           />
+         </div>
++        <div className="col-12 col-md-6 col-xl-3 input-field-padding">
++          <Select
++            label="Select field"
++            options={branchOptions}
++          />
++        </div>
+         <div className="col-12 col-md-6 col-xl-3 input-field-padding">
+           <Input
+             label="Helper text"
+diff --git a/code/src/form-components/CheckBox.tsx b/code/src/form-components/CheckBox.tsx
+index 84c289a..16721ad 100644
+--- a/code/src/form-components/CheckBox.tsx
++++ b/code/src/form-components/CheckBox.tsx
+@@ -2,6 +2,7 @@ import { useState } from 'react';
+ import { CheckBoxOutlineBlank, CheckBoxOutlined } from '@mui/icons-material';
+ import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
+ import { FormControlLabel } from '@mui/material';
++import "../form-components/form.css";
+ 
+ export type TypeCheckBoxProps = {
+   name?: string;
+diff --git a/code/src/form-components/Input.css b/code/src/form-components/Input.css
+deleted file mode 100644
+index 09659c9..0000000
+--- a/code/src/form-components/Input.css
++++ /dev/null
+@@ -1,140 +0,0 @@
+-.MuiTextField-root {
+-  width: 100%;
+-}
+-
+-.MuiTextField-root>label {
+-  line-height: 18.4px;
+-}
+-
+-.MuiTextField-root .MuiInputBase-root {
+-  font-size: 14px;
+-  line-height: unset;
+-  padding: 0px 14px;
+-}
+-
+-.MuiTextField-root .MuiInputBase-root .MuiInputBase-input {
+-  height: unset;
+-  padding: 14.5px 0px;
+-}
+-
+-.MuiTextField-root .MuiInputBase-root>input[type=number]::-webkit-inner-spin-button,
+-.MuiTextField-root .MuiInputBase-root>input[type=number]::-webkit-outer-spin-button {
+-  -webkit-appearance: none;
+-}
+-
+-.MuiTextField-root .MuiOutlinedInput-root .MuiInputAdornment-root .MuiSvgIcon-root {
+-  font-size: 20px;
+-}
+-
+-.MuiTextField-root .MuiOutlinedInput-root fieldset,
+-.MuiTextField-root .MuiOutlinedInput-root.Mui-disabled fieldset,
+-.MuiTextField-root .MuiOutlinedInput-root:hover fieldset {
+-  border: 1px solid;
+-  border-color: var(--color-grey-2);
+-}
+-
+-.MuiTextField-root label.Mui-focused {
+-  color: var(--color-secondary);
+-}
+-
+-.MuiTextField-root .MuiOutlinedInput-root.Mui-focused fieldset {
+-  border: 1px solid var(--color-secondary);
+-}
+-
+-.MuiTextField-root .MuiOutlinedInput-root.Mui-error:hover fieldset,
+-.MuiTextField-root .MuiOutlinedInput-root.Mui-error.Mui-focused fieldset {
+-  border-color: #d32f2f;
+-}
+-
+-.MuiTextField-root label.Mui-error.Mui-focused {
+-  color: #d32f2f;
+-}
+-
+-.MuiTextField-root .MuiOutlinedInput-root.Mui-disabled {
+-  background-color: #e7f1f4;
+-  border: none;
+-}
+-
+-.MuiTextField-root>label.Mui-focused,
+-.MuiTextField-root>label.MuiFormLabel-filled {
+-  transform: translate(11px, -9px) scale(0.75);
+-  /* transform: translate(12px, -10px) scale(0.75); */
+-}
+-
+-.MuiFormLabel-root+.MuiInputBase-root fieldset legend span {
+-  /* padding-right: 9px; */
+-  font-size: 11px;
+-}
+-
+-.MuiFormLabel-root.Mui-focused.Mui-required+.MuiInputBase-root fieldset legend span,
+-.MuiFormLabel-root.MuiFormLabel-filled.Mui-required+.MuiInputBase-root fieldset legend span {
+-  padding-right: 8px;
+-}
+-
+-/* #region checkbox design */
+-
+-.MuiButtonBase-root.MuiCheckbox-root {
+-  color: var(--color-grey-2);
+-  padding: 13px;
+-}
+-
+-.MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+-  color: var(--color-secondary);
+-}
+-
+-.check-box-container {
+-  /* display: flex; */
+-  text-align: left;
+-}
+-
+-/* #end region */
+-
+-/* #region radio design */
+-
+-.radio-container {
+-  text-align: left;
+-}
+-
+-.MuiFormControlLabel-root .MuiRadio-root.Mui-checked {
+-  color: var(--color-secondary);
+-}
+-
+-/* #end region */
+-
+-/* #region switch desing */
+-
+-.switch-container {
+-  text-align: left;
+-}
+-
+-.MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
+-  color: var(--color-secondary);
+-}
+-
+-/* #end region */
+-
+-@media only screen and (max-width: 1024px) {
+-  /* region input */
+-
+-  .MuiTextField-root>label:not(.Mui-focused):not(.MuiFormLabel-filled)
+-  /* .MuiTextField-root>label:not(.Mui-focused.MuiFormLabel-filled) */
+-
+-  /* .MuiTextField-root>label:not(.MuiFormLabel-filled)  */
+-    {
+-    transform: translate(14px, 11px) scale(1);
+-  }
+-
+-  .MuiTextField-root .MuiInputBase-root .MuiInputBase-input {
+-    padding: 9.5px 0px;
+-  }
+-
+-  /* #end region */
+-
+-  /* region checkbox */
+-
+-  .MuiButtonBase-root.MuiCheckbox-root {
+-    padding: 8px;
+-  }
+-
+-  /* #end region */
+-}
+\ No newline at end of file
+diff --git a/code/src/form-components/Input.tsx b/code/src/form-components/Input.tsx
+index 9e73b5b..fb93731 100644
+--- a/code/src/form-components/Input.tsx
++++ b/code/src/form-components/Input.tsx
+@@ -2,9 +2,10 @@ import { InputAdornment } from '@mui/material';
+ import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+ import clsx from 'clsx';
+ import { useState } from 'react';
++import "../form-components/form.css";
+ 
+ export type TypeInputProps<T extends TextFieldVariants = "outlined"> = {
+-  label: string;
++  label?: string;
+   className?: string;
+   type?: "text" | "password" | "number" | "money" | "percentage";
+   variant?: T
+diff --git a/code/src/form-components/Radio.tsx b/code/src/form-components/Radio.tsx
+index b837c78..52b1d89 100644
+--- a/code/src/form-components/Radio.tsx
++++ b/code/src/form-components/Radio.tsx
+@@ -1,5 +1,6 @@
+ import { FormControl, FormLabel, RadioGroup, Radio as MUIRadio, RadioProps, FormControlLabel } from '@mui/material';
+ import { useState } from 'react';
++import "../form-components/form.css";
+ 
+ type TypeRadioProps = {
+   name?: string;
+diff --git a/code/src/form-components/Switch.tsx b/code/src/form-components/Switch.tsx
+index 6f37891..25585a9 100644
+--- a/code/src/form-components/Switch.tsx
++++ b/code/src/form-components/Switch.tsx
+@@ -1,4 +1,5 @@
+ import { FormControlLabel, FormGroup, Switch as MUISwitch, SwitchProps } from '@mui/material';
++import "../form-components/form.css";
+ 
+ export type TypeSwitchProps = {
+   label?: string;
+diff --git a/code/src/form-components/TextArea.tsx b/code/src/form-components/TextArea.tsx
+index e8dcf78..31b4513 100644
+--- a/code/src/form-components/TextArea.tsx
++++ b/code/src/form-components/TextArea.tsx
+@@ -1,4 +1,6 @@
+ import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
++import "../form-components/form.css";
++import clsx from 'clsx';
+ 
+ export type TypeTextFieldProps<T extends TextFieldVariants = "outlined"> = {
+   label: string;
+@@ -22,6 +24,7 @@ export const TextArea = ({
+ 
+   return (
+     <TextField
++      className={clsx("usability-text-area", className)}
+       label={label}
+       variant={variant}
+       // type={textAreaFieldType}
+diff --git a/code/src/form-components/form.css b/code/src/form-components/form.css
+new file mode 100644
+index 0000000..5b28b72
+--- /dev/null
++++ b/code/src/form-components/form.css
+@@ -0,0 +1,148 @@
++.MuiTextField-root {
++  width: 100%;
++}
++
++label.MuiFormLabel-root {
++  line-height: 18.4px;
++}
++
++.MuiInputBase-root.MuiOutlinedInput-root
++
++/* , */
++/* .MuiFormControl-root .MuiInputBase-root.MuiSelect-root */
++  {
++  font-size: 14px;
++  line-height: unset;
++  padding: 0px 14px;
++}
++
++.MuiInputBase-root .MuiInputBase-input
++/* , */
++/* .MuiFormControl-root .MuiSelect-root .MuiSelect-select.MuiOutlinedInput-input */
++ {
++  height: unset;
++  padding: 14.5px 0px;
++}
++
++.MuiInputBase-root>input[type=number]::-webkit-inner-spin-button,
++.MuiInputBase-root>input[type=number]::-webkit-outer-spin-button {
++  -webkit-appearance: none;
++}
++
++.MuiOutlinedInput-root .MuiInputAdornment-root .MuiSvgIcon-root {
++  font-size: 20px;
++}
++
++.MuiOutlinedInput-root fieldset.MuiOutlinedInput-notchedOutline,
++.MuiOutlinedInput-root.Mui-disabled fieldset.MuiOutlinedInput-notchedOutline,
++.MuiOutlinedInput-root:hover fieldset.MuiOutlinedInput-notchedOutline {
++  border: 1px solid;
++  border-color: var(--color-grey-2);
++}
++
++label.MuiFormLabel-root.Mui-focused {
++  color: var(--color-secondary);
++}
++
++.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
++  border: 1px solid;
++  border-color: var(--color-secondary);
++}
++
++.MuiOutlinedInput-root.Mui-error:hover fieldset.MuiOutlinedInput-notchedOutline,
++.MuiOutlinedInput-root.Mui-error.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
++  border-color: #d32f2f;
++}
++
++label.MuiFormLabel-root.Mui-error.Mui-focused {
++  color: #d32f2f;
++}
++
++.MuiOutlinedInput-root.Mui-disabled {
++  background-color: #e7f1f4;
++  border: none;
++}
++
++label.MuiFormLabel-root.Mui-focused,
++label.MuiFormLabel-root.MuiFormLabel-filled {
++  transform: translate(11px, -9px) scale(0.75);
++  /* transform: translate(12px, -10px) scale(0.75); */
++}
++
++label.MuiFormLabel-root+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span {
++  /* padding-right: 9px; */
++  font-size: 11px;
++}
++
++label.MuiFormLabel-root.Mui-focused.Mui-required+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span,
++label.MuiFormLabel-root.MuiFormLabel-filled.Mui-required+.MuiInputBase-root fieldset.MuiOutlinedInput-notchedOutline legend span {
++  padding-right: 8px;
++}
++
++/* #region checkbox design */
++
++.MuiButtonBase-root.MuiCheckbox-root {
++  color: var(--color-grey-2);
++  padding: 13px;
++}
++
++.MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
++  color: var(--color-secondary);
++}
++
++.check-box-container {
++  /* display: flex; */
++  text-align: left;
++}
++
++/* #end region */
++
++/* #region radio design */
++
++.radio-container {
++  text-align: left;
++}
++
++.MuiFormControlLabel-root .MuiRadio-root.Mui-checked {
++  color: var(--color-secondary);
++}
++
++/* #end region */
++
++/* #region switch desing */
++
++.switch-container {
++  text-align: left;
++}
++
++.MuiSwitch-root .MuiSwitch-switchBase.Mui-checked {
++  color: var(--color-secondary);
++}
++
++/* #end region */
++
++@media only screen and (max-width: 1024px) {
++  /* region input */
++
++  label.MuiFormLabel-root:not(.Mui-focused):not(.MuiFormLabel-filled)
++  /* label.MuiFormLabel-root:not(.Mui-focused.MuiFormLabel-filled) */
++
++  /* label.MuiFormLabel-root:not(.MuiFormLabel-filled)  */
++    {
++    transform: translate(14px, 11px) scale(1);
++  }
++
++  .MuiInputBase-root .MuiInputBase-input {
++    padding: 9.5px 0px;
++  }
++
++  /* #end region */
++
++  /* region checkbox */
++
++  .MuiButtonBase-root.MuiCheckbox-root {
++    padding: 8px;
++  }
++
++  /* #end region */
++}
+\ No newline at end of file
+diff --git a/code/src/form-components/index.ts b/code/src/form-components/index.ts
+index 4db3c6e..ec20ea1 100644
+--- a/code/src/form-components/index.ts
++++ b/code/src/form-components/index.ts
+@@ -2,4 +2,5 @@ export * from "./Input";
+ export * from "./TextArea";
+ export * from "./CheckBox";
+ export * from "./Radio";
+-export * from "./Switch";
+\ No newline at end of file
++export * from "./Switch";
++export * from "./Select";
+\ No newline at end of file
+-- 
+2.36.0.windows.1
+

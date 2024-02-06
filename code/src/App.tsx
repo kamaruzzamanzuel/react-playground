@@ -12,6 +12,8 @@ import ClaimDetails from './claim-details/ClaimDetails';
 import ButtonExamples from "./advanced-buttons/ButtonExamples";
 import NotePanel from "./notes/NotePanel";
 import FormExamples from "./features/FormExamples";
+// import Extension from "./utils/Extension";
+import "./utils/Extension";
 
 LicenseManager.setLicenseKey("KEY HERE");
 
@@ -56,6 +58,8 @@ const router = createBrowserRouter([
     ]
   }
 ]);
+
+// Extension();
 
 function App() {
   return (

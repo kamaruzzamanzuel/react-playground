@@ -1,6 +1,8 @@
 import "../form-components/Input.css";
 import { CheckBox, Input, Radio, Switch, TextArea } from "../form-components";
 
+const tt = ["1", "2", "3"];
+
 const Form = () => {
   const genderGroups = [
     { value: "male", label: "Male" },
@@ -12,6 +14,10 @@ const Form = () => {
     { value: "dhaka", text: "Dhaka" },
     { value: "sydney", text: "Sydney" }
   ];
+
+  const res = tt.includesExt("null")
+
+  console.log({ res })
 
   return (
     <div className="t-bg-white t-p-[20px]">

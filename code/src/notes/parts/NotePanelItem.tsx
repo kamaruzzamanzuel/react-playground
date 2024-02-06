@@ -30,7 +30,7 @@ import {
   useState
 } from "react";
 import { TypeNote, TypeNoteListItem } from "../Note.Types";
-import { formatDateToString } from "../../utlis/Helpers";
+import { formatDateToString } from "../../utils/Helpers";
 //   import {
 //     alertNote,
 //     deleteNote,
